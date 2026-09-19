@@ -24,6 +24,9 @@ const context = vm.createContext({
 vm.runInContext(script, context);
 const summary = JSON.parse(fs.readFileSync(path.join(root,'derived/points.json')));
 const links = JSON.parse(fs.readFileSync(path.join(root,'derived/benchmark-points.json')));
+const locVariant = s => String(s)
+  .replaceAll('[vendor self-report]', '[厂商自报]')
+  .replaceAll('[AA estimate]', '[AA 估计值]');
 for (const board of Object.keys(summary.boards)) {
   element('board').value = board;
   for (const view of ['all','summary']) {
@@ -31,8 +34,8 @@ for (const board of Object.keys(summary.boards)) {
     vm.runInContext('draw()', context);
     assert(render.layout.title.text.includes('参考'));
     const hover = render.traces.flatMap(t=>t.hovertemplate||[]).join('\n');
-    const expected = view==='all' ? links.filter(c=>c.board===board).map(c=>c.variant)
-      : summary.points.map(p=>p[board+'__variant']).filter(Boolean);
+    const expected = view==='all' ? links.filter(c=>c.board===board).map(c=>locVariant(c.variant))
+      : summary.points.map(p=>p[board+'__variant']).filter(Boolean).map(locVariant);
     for(const label of new Set(expected)) assert(hover.includes(label), `${board} ${view} missing ${label}`);
     assert(hover.includes('quota-measurement effort'));
     assert(hover.includes('来源任务成本（非订阅）'));
