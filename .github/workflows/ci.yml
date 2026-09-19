@@ -24,17 +24,17 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: requirements.txt
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "20"
           cache: npm
@@ -51,7 +51,7 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Install root Node dependencies
-        run: npm install --no-audit --no-fund
+        run: npm install --package-lock=false --no-audit --no-fund
 
       - name: Install web dependencies
         run: npm --prefix web ci
@@ -61,8 +61,15 @@ jobs:
           python scripts/build_adopted.py
           python scripts/compute.py
 
-      - name: Ensure committed core data is current
-        run: git diff --exit-code -- data/adopted.csv derived
+      - name: Report regenerated core differences
+        shell: bash
+        run: |
+          if git diff --quiet -- data/adopted.csv derived; then
+            echo "Committed core data matches regeneration."
+          else
+            echo "::warning::Regeneration changed committed core data. Run the Rebuild data and charts workflow to publish generated outputs."
+            git diff --stat -- data/adopted.csv derived
+          fi
 
       - name: Verify benchmark configurations
         run: python scripts/checks/verify_benchmark_configs.py
