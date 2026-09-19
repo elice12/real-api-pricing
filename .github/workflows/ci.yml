@@ -56,34 +56,38 @@ jobs:
       - name: Install web dependencies
         run: npm --prefix web ci
 
-      - name: Regenerate core adopted and derived data
+      - name: Rebuild adopted and derived data
         run: |
           python scripts/build_adopted.py
           python scripts/compute.py
 
-      - name: Report regenerated core differences
-        shell: bash
-        run: |
-          if git diff --quiet -- data/adopted.csv derived; then
-            echo "Committed core data matches regeneration."
-          else
-            echo "::warning::Regeneration changed committed core data. Run the Rebuild data and charts workflow to publish generated outputs."
-            git diff --stat -- data/adopted.csv derived
-          fi
-
       - name: Verify benchmark configurations
         run: python scripts/checks/verify_benchmark_configs.py
 
-      - name: Build interactive chart for validation
+      - name: Rebuild charts and interactive HTML
         run: |
+          python scripts/plot_svg.py
+          node scripts/render_svg.cjs
           python scripts/build_html.py
           node scripts/checks/verify_configuration_html.cjs
+          python scripts/plot_quotas.py
+          python scripts/publish_charts.py
 
-      - name: Verify published charts and publication set
+      - name: Verify rebuilt publication
         run: |
           python scripts/checks/verify_svg.py
           python scripts/checks/verify_four_boards.py
           python scripts/checks/verify_publication.py
+
+      - name: Report generated differences
+        shell: bash
+        run: |
+          if git diff --quiet -- data/adopted.csv derived charts; then
+            echo "Committed generated outputs match regeneration."
+          else
+            echo "::warning::Cloud regeneration changed committed generated outputs. Run the Rebuild data and charts workflow to publish them."
+            git diff --stat -- data/adopted.csv derived charts
+          fi
 
       - name: Test web app
         run: npm --prefix web test
