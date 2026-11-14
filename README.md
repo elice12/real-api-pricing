@@ -2,6 +2,8 @@
 
 # Real API Pricing
 
+> **Freshness notice (2026-11-14):** Adopted values and published charts still reflect the **2026-10-16** snapshot. New official evidence for Devin SWE-2, OpenCode Go and OpenAI's upcoming December usage change is documented in the [Nov 14 review](docs/refresh-2026-11-14.md), but **not yet included in calculated rankings**. Do not treat expired historical promotion labels as current policy.
+
 AI coding subscriptions sell a monthly fee, not a per-token price. This project works out what each plan actually costs per million tokens, then plots that price against public leaderboard scores to show which plans give the most capability for the money.
 
 **Real price = monthly fee ÷ tokens you can actually use in a month.**
