@@ -2,7 +2,7 @@
 
 # 真实 API 定价
 
-> **数据时效提醒（2026-11-14）**：当前已采用数据与图表仍是 **2026-10-16** 快照；11 月官方套餐复核已记录，但**尚未重新计算入榜**。Devin SWE-2 免费权益、OpenCode Go 额度和 OpenAI 12 月额度合并见 [2026-11-14 复核记录](docs/refresh-2026-11-14.md)。切勿将旧促销截止日当成当前有效政策。
+> **2026-11-14 采用更新**：Devin SWE-2 永久免费权益及 OpenCode Go/Go Plus/Go Teams 的官方分模型额度已入库；其他厂商仍以各自数据日期为准。OpenAI 12 月起额度合并仅记政策公告，尚未纳入 Token 实测。详见 [证据与更新范围](docs/refresh-2026-11-14.md)。
 
 AI 编程订阅只标月费，不标每 token 多少钱。本项目把每个套餐折算成真实的每百万 token 单价，再和公开榜单的分数画在一起，看同样的钱哪家买到的能力最多。
 
@@ -45,7 +45,7 @@ node cli/dist/main.js allowance --company Anthropic --fee-band 0-30
 - **置信度**：每行标 high / medium / low。high 是面板反推、受控实测或官方表；medium 是官方倍率乘一个 high 基准，或多个独立来源量级一致；low 是单一口述或跨档位假设。推算值不会当成实测来写。
 - **一个套餐多个模型**：同一套餐下每个模型各占一个点，这些额度是「选一个用」，不能相加。
 - **分数**直接取自各榜单，不同榜单不混用。静态图取每个模型存档里的最高配置。
-- **促销期不计额度**：套餐临时不计额度的模型画在右端 ≈$0 的专用刻度上。目前有 <!-- stat:points_unmetered -->1<!-- /stat --> 个这样的点：Devin Pro 的 SWE-2，促销到 2026-10-31。
+- **不计 Token 增量费**：此类权益画在右端 ≈$0 的专用刻度上。目前有 <!-- stat:points_unmetered -->1<!-- /stat --> 个这样的点：Devin Pro 的 SWE-2（仅 Desktop/CLI，2026-11-12 公告为永久权益）。仍可能存在速率限制，≈$0 不等于无限吞吐。
 
 每个采用值的证据和取舍理由见 [DECISIONS.md](DECISIONS.md)，以及 [adopted.csv](data/adopted.csv) 的 `decision_note` 列。
 
@@ -147,7 +147,7 @@ Stanford、Harbor 和 Laude Institute 维护的 66 题官方榜（快照 2026-09
 |---|---:|
 | 全部「套餐 × 模型」点 | <!-- stat:points_total -->332<!-- /stat --> |
 | 有月额度的订阅 | <!-- stat:points_allowance -->310<!-- /stat --> |
-| 促销期不计额度（≈$0） | <!-- stat:points_unmetered -->1<!-- /stat --> |
+| 不计 Token 增量费（≈$0） | <!-- stat:points_unmetered -->1<!-- /stat --> |
 | 按量 API（标价） | <!-- stat:points_metered -->21<!-- /stat --> |
 
 | 榜单 | 有分点 |
@@ -161,7 +161,7 @@ Stanford、Harbor 和 Laude Institute 维护的 66 题官方榜（快照 2026-09
 | Terminal-Bench 4.0（AA） | <!-- stat:scored_aa_terminal_bench_4 -->279<!-- /stat --> |
 | DeepSWE v1.1 | <!-- stat:scored_deepswe_1_1 -->195<!-- /stat --> |
 
-点数最多的几个套餐家族：Command Code GOAT <!-- stat:plans_command_code_goat -->59<!-- /stat --> 个、MiMo Token Plan <!-- stat:plans_mimo_token -->32<!-- /stat --> 个、OpenCode Go <!-- stat:plans_opencode_go -->30<!-- /stat --> 个、Droid Max <!-- stat:plans_droid_max -->27<!-- /stat --> 个、Ollama <!-- stat:plans_ollama -->22<!-- /stat --> 个、Step Plan <!-- stat:plans_step_plan -->12<!-- /stat --> 个。
+点数最多的几个套餐家族：Command Code GOAT <!-- stat:plans_command_code_goat -->59<!-- /stat --> 个、MiMo Token Plan <!-- stat:plans_mimo_token -->32<!-- /stat --> 个、OpenCode Go/Plus/Teams <!-- stat:plans_opencode_go -->30<!-- /stat --> 个、Droid Max <!-- stat:plans_droid_max -->27<!-- /stat --> 个、Ollama <!-- stat:plans_ollama -->22<!-- /stat --> 个、Step Plan <!-- stat:plans_step_plan -->12<!-- /stat --> 个。
 
 **下载：** [采用值 CSV](data/adopted.csv) · [计算结果 CSV](derived/points.csv) / [JSON](derived/points.json) · [数据说明](data/README.md) · [分日期原始证据](data/research/)
 
