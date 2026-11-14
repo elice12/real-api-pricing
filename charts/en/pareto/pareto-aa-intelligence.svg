@@ -60,7 +60,7 @@
 <text x="66.000" y="469.000" font-size="12" fill="#697169" text-anchor="middle" font-weight="400" transform="rotate(-90 66 469.0)">Intelligence Index</text>
 <text x="720.000" y="775.000" font-size="13" fill="#5D655E" text-anchor="middle" font-weight="400" >Real price · USD per million tokens</text>
 <text x="1338.000" y="775.000" font-size="12" fill="#737B74" text-anchor="end" font-weight="400" >Cheaper →</text>
-<path id="frontier" d="M120.000,271.985 L973.677,271.985 L1070.550,286.630 L1144.208,433.767 L1177.435,447.765 L1185.206,611.657 L1283.209,634.074 L1338.000,634.074" fill="none" stroke="#303630" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="frontier" d="M120.000,271.985 L973.677,271.985 L1070.550,286.630 L1215.600,433.767 L1283.209,634.074 L1338.000,634.074" fill="none" stroke="#303630" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.032467532" data-score="46.9727" data-x="724.373" data-y="366.828" transform="translate(724.373 366.828)"><title>GPT 5.6 Sol · Plus / GPT 5.6 Sol · Pro 5x · $0.03247/MTok · 46.9727 · mediumGPT-5.6 Sol (max) · Exact served-model reference; quota-measurement effort is unverified. / GPT-5.6 Sol (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#16A34A" opacity=".68"/>
 </g>
@@ -320,81 +320,167 @@
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.25252525" data-score="25.1622" data-x="437.691" data-y="561.065" transform="translate(437.691 561.065)"><title>Qwen3.7 Plus · Alibaba Cloud Coding Plan Pro · $0.25253/MTok · 25.1622 · lowQwen3.7 Plus · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#C0142F" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.37735849" data-score="44.3113" data-x="381.552" data-y="390.530" transform="translate(381.552 390.530)"><title>Grok 4.6 · OpenCode Go · $0.37736/MTok · 44.3113 · mediumGrok 4.6 (high) · Exact served-model reference; quota-measurement effort is unverified.</title>
-<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
-</g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.37735849" data-score="46.4466" data-x="381.552" data-y="371.513" transform="translate(381.552 371.513)"><title>Grok 4.7 · OpenCode Go · $0.37736/MTok · 46.4466 · mediumGrok 4.7 (xhigh) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.020267531" data-score="37.3244" data-x="790.230" data-y="452.753" transform="translate(790.230 452.753)"><title>GPT 5.6 Luna · OpenCode Go · $0.02027/MTok · 37.3244 · mediumGPT-5.6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.37664783" data-score="46.4466" data-x="381.816" data-y="371.513" transform="translate(381.816 371.513)"><title>Grok 4.7 · OpenCode Go Plus · $0.37665/MTok · 46.4466 · mediumGrok 4.7 (xhigh) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0098000784" data-score="37.256" data-x="891.782" data-y="453.362" transform="translate(891.782 453.362)"><title>GPT-6 Luna · OpenCode Go · $0.0098/MTok · 37.256 · mediumGPT-6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.56497175" data-score="46.4466" data-x="325.149" data-y="371.513" transform="translate(325.149 371.513)"><title>Grok 4.7 · OpenCode Go Teams (per member) · $0.56497/MTok · 46.4466 · mediumGrok 4.7 (xhigh) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0058917104" data-score="41.8075" data-x="962.897" data-y="412.828" transform="translate(962.897 412.828)"><title>GLM 5.3 Flash · OpenCode Go · $0.00589/MTok · 41.8075 · mediumGLM-5.3-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0078556138" data-score="41.8075" data-x="922.691" data-y="412.828" transform="translate(922.691 412.828)"><title>GLM 5.3 Flash · OpenCode Go Plus · $0.00786/MTok · 41.8075 · mediumGLM-5.3-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.010876659" data-score="41.8075" data-x="877.215" data-y="412.828" transform="translate(877.215 412.828)"><title>GLM 5.3 Flash · OpenCode Go Teams (per member) · $0.01088/MTok · 41.8075 · mediumGLM-5.3-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.20618557" data-score="44.7774" data-x="466.025" data-y="386.379" transform="translate(466.025 386.379)"><title>GLM 5.3 · OpenCode Go · $0.20619/MTok · 44.7774 · mediumGLM-5.3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.10306622" data-score="44.7774" data-x="562.934" data-y="386.379" transform="translate(562.934 386.379)"><title>GLM 5.3 · OpenCode Go Plus · $0.10307/MTok · 44.7774 · mediumGLM-5.3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.30911901" data-score="44.7774" data-x="409.430" data-y="386.379" transform="translate(409.430 386.379)"><title>GLM 5.3 · OpenCode Go Teams (per member) · $0.30912/MTok · 44.7774 · mediumGLM-5.3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.051546392" data-score="33.7055" data-x="659.771" data-y="484.981" transform="translate(659.771 484.981)"><title>GLM 5.2 · OpenCode Go · $0.05155/MTok · 33.7055 · mediumGLM-5.2 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.068716715" data-score="33.7055" data-x="619.589" data-y="484.981" transform="translate(619.589 484.981)"><title>GLM 5.2 · OpenCode Go Plus · $0.06872/MTok · 33.7055 · mediumGLM-5.2 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.095147479" data-score="33.7055" data-x="574.107" data-y="484.981" transform="translate(574.107 484.981)"><title>GLM 5.2 · OpenCode Go Teams (per member) · $0.09515/MTok · 33.7055 · mediumGLM-5.2 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0098000784" data-score="37.256" data-x="891.782" data-y="453.362" transform="translate(891.782 453.362)"><title>GPT-6 Luna · OpenCode Go / GPT-6 Luna · OpenCode Go Plus · $0.0098/MTok · 37.256 · mediumGPT-6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified. / GPT-6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.014700478" data-score="37.256" data-x="835.112" data-y="453.362" transform="translate(835.112 453.362)"><title>GPT-6 Luna · OpenCode Go Teams (per member) · $0.0147/MTok · 37.256 · mediumGPT-6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.020267531" data-score="37.3244" data-x="790.230" data-y="452.753" transform="translate(790.230 452.753)"><title>GPT 5.6 Luna · OpenCode Go · $0.02027/MTok · 37.3244 · mediumGPT-5.6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.020266505" data-score="37.3244" data-x="790.237" data-y="452.753" transform="translate(790.237 452.753)"><title>GPT 5.6 Luna · OpenCode Go Plus · $0.02027/MTok · 37.3244 · mediumGPT-5.6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.030399757" data-score="37.3244" data-x="733.570" data-y="452.753" transform="translate(733.570 452.753)"><title>GPT 5.6 Luna · OpenCode Go Teams (per member) · $0.0304/MTok · 37.3244 · mediumGPT-5.6 Luna (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.29411765" data-score="43.5938" data-x="416.382" data-y="396.919" transform="translate(416.382 396.919)"><title>Kimi K3 · OpenCode Go · $0.29412/MTok · 43.5938 · mediumKimi K3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.29390154" data-score="43.5938" data-x="416.485" data-y="396.919" transform="translate(416.485 396.919)"><title>Kimi K3 · OpenCode Go Plus · $0.2939/MTok · 43.5938 · mediumKimi K3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.44052863" data-score="43.5938" data-x="359.921" data-y="396.919" transform="translate(359.921 396.919)"><title>Kimi K3 · OpenCode Go Teams (per member) · $0.44053/MTok · 43.5938 · mediumKimi K3 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.038008362" data-score="25.8121" data-x="702.352" data-y="555.277" transform="translate(702.352 555.277)"><title>Kimi K2.7 Code · OpenCode Go / Kimi K2.7 Code · Command Code GOAT · $0.03801/MTok · 25.8121 · mediumKimi K2.7 Code · Exact served-model reference; quota-measurement effort is unverified. / Kimi K2.7 Code · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.033156499" data-score="26.9792" data-x="721.438" data-y="544.883" transform="translate(721.438 544.883)"><title>Kimi K2.6 · OpenCode Go · $0.03316/MTok · 26.9792 · mediumKimi K2.6 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.050677816" data-score="25.8121" data-x="662.146" data-y="555.277" transform="translate(662.146 555.277)"><title>Kimi K2.7 Code · OpenCode Go Plus · $0.05068/MTok · 25.8121 · mediumKimi K2.7 Code · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0032199897" data-score="19.1123" data-x="1047.335" data-y="614.943" transform="translate(1047.335 614.943)"><title>LongCat 2.0 · OpenCode Go · $0.00322/MTok · 19.1123 · mediumLongCat 2.0 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.070175439" data-score="25.8121" data-x="616.653" data-y="555.277" transform="translate(616.653 555.277)"><title>Kimi K2.7 Code · OpenCode Go Teams (per member) · $0.07018/MTok · 25.8121 · mediumKimi K2.7 Code · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0032199897" data-score="19.1123" data-x="1047.335" data-y="614.943" transform="translate(1047.335 614.943)"><title>LongCat 2.0 · OpenCode Go / LongCat 2.0 · OpenCode Go Plus · $0.00322/MTok · 19.1123 · mediumLongCat 2.0 · Exact served-model reference; quota-measurement effort is unverified. / LongCat 2.0 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0059445964" data-score="19.1123" data-x="961.648" data-y="614.943" transform="translate(961.648 614.943)"><title>LongCat 2.0 · OpenCode Go Teams (per member) · $0.00594/MTok · 19.1123 · mediumLongCat 2.0 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.090334237" data-score="43.7343" data-x="581.362" data-y="395.668" transform="translate(581.362 395.668)"><title>Step 5 Preview · OpenCode Go / Step 5 Preview · OpenCode Go Plus · $0.09033/MTok · 43.7343 · mediumStep 5 Preview · Exact served-model reference; quota-measurement effort is unverified. / Step 5 Preview · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.13550136" data-score="43.7343" data-x="524.695" data-y="395.668" transform="translate(524.695 395.668)"><title>Step 5 Preview · OpenCode Go Teams (per member) · $0.1355/MTok · 43.7343 · mediumStep 5 Preview · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0012693255" data-score="37.8844" data-x="1177.435" data-y="447.765" transform="translate(1177.435 447.765)"><title>MiMo V2.6 Flash · OpenCode Go · $0.00127/MTok · 37.8844 · mediumMiMo-V2.6-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0025386671" data-score="37.8844" data-x="1080.561" data-y="447.765" transform="translate(1080.561 447.765)"><title>MiMo V2.6 Flash · OpenCode Go Plus · $0.00254/MTok · 37.8844 · mediumMiMo-V2.6-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0023433747" data-score="37.8844" data-x="1091.748" data-y="447.765" transform="translate(1091.748 447.765)"><title>MiMo V2.6 Flash · OpenCode Go Teams (per member) · $0.00234/MTok · 37.8844 · mediumMiMo-V2.6-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.012493753" data-score="46.3242" data-x="857.844" data-y="372.603" transform="translate(857.844 372.603)"><title>MiMo V2.6 Pro · OpenCode Go · $0.01249/MTok · 46.3242 · mediumMiMo-V2.6-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.012494143" data-score="46.3242" data-x="857.839" data-y="372.603" transform="translate(857.839 372.603)"><title>MiMo V2.6 Pro · OpenCode Go Plus · $0.01249/MTok · 46.3242 · mediumMiMo-V2.6-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.01874063" data-score="46.3242" data-x="801.177" data-y="372.603" transform="translate(801.177 372.603)"><title>MiMo V2.6 Pro · OpenCode Go Teams (per member) · $0.01874/MTok · 46.3242 · mediumMiMo-V2.6-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0012693255" data-score="25.1743" data-x="1177.435" data-y="560.957" transform="translate(1177.435 560.957)"><title>MiMo V2.5 · OpenCode Go · $0.00127/MTok · 25.1743 · mediumMiMo-V2.5 [AA estimate] · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0025386671" data-score="25.1743" data-x="1080.561" data-y="560.957" transform="translate(1080.561 560.957)"><title>MiMo V2.5 · OpenCode Go Plus · $0.00254/MTok · 25.1743 · mediumMiMo-V2.5 [AA estimate] · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0023433747" data-score="25.1743" data-x="1091.748" data-y="560.957" transform="translate(1091.748 560.957)"><title>MiMo V2.5 · OpenCode Go Teams (per member) · $0.00234/MTok · 25.1743 · mediumMiMo-V2.5 [AA estimate] · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.012493753" data-score="25.9869" data-x="857.844" data-y="553.720" transform="translate(857.844 553.720)"><title>MiMo V2.5 Pro · OpenCode Go · $0.01249/MTok · 25.9869 · mediumMiMo-V2.5-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="true" data-price="0.0012693255" data-score="37.8844" data-x="1177.435" data-y="447.765" transform="translate(1177.435 447.765)"><title>MiMo V2.6 Flash · OpenCode Go · $0.00127/MTok · 37.8844 · mediumMiMo-V2.6-Flash · Exact served-model reference; quota-measurement effort is unverified.</title>
-<rect x="-11" y="-11" width="22" height="22" rx="6" fill="#FFF" stroke="#0F766E" stroke-width="1.35"/>
-<circle r="4" fill="#0F766E"/>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.012494143" data-score="25.9869" data-x="857.839" data-y="553.720" transform="translate(857.839 553.720)"><title>MiMo V2.5 Pro · OpenCode Go Plus · $0.01249/MTok · 25.9869 · mediumMiMo-V2.5-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.012493753" data-score="46.3242" data-x="857.844" data-y="372.603" transform="translate(857.844 372.603)"><title>MiMo V2.6 Pro · OpenCode Go · $0.01249/MTok · 46.3242 · mediumMiMo-V2.6-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.01874063" data-score="25.9869" data-x="801.177" data-y="553.720" transform="translate(801.177 553.720)"><title>MiMo V2.5 Pro · OpenCode Go Teams (per member) · $0.01874/MTok · 25.9869 · mediumMiMo-V2.5-Pro · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.011950287" data-score="29.2203" data-x="864.059" data-y="524.925" transform="translate(864.059 524.925)"><title>MiniMax M3 · OpenCode Go · $0.01195/MTok · 29.2203 · mediumMiniMax-M3 · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.011950287" data-score="22.7578" data-x="864.059" data-y="582.478" transform="translate(864.059 582.478)"><title>MiniMax M2.7 · OpenCode Go · $0.01195/MTok · 22.7578 · mediumMiniMax-M2.7 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.015933081" data-score="29.2203" data-x="823.859" data-y="524.925" transform="translate(823.859 524.925)"><title>MiniMax M3 · OpenCode Go Plus · $0.01593/MTok · 29.2203 · mediumMiniMax-M3 · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.21505376" data-score="40.1529" data-x="460.139" data-y="427.563" transform="translate(460.139 427.563)"><title>Qwen3.8 Max · OpenCode Go · $0.21505/MTok · 40.1529 · mediumQwen3.8 Max · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.022060446" data-score="29.2203" data-x="778.383" data-y="524.925" transform="translate(778.383 524.925)"><title>MiniMax M3 · OpenCode Go Teams (per member) · $0.02206/MTok · 29.2203 · mediumMiniMax-M3 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.21505376" data-score="40.1529" data-x="460.139" data-y="427.563" transform="translate(460.139 427.563)"><title>Qwen3.8 Max · OpenCode Go / Qwen3.8 Max · OpenCode Go Plus · $0.21505/MTok · 40.1529 · mediumQwen3.8 Max · Exact served-model reference; quota-measurement effort is unverified. / Qwen3.8 Max · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.32258065" data-score="40.1529" data-x="403.472" data-y="427.563" transform="translate(403.472 427.563)"><title>Qwen3.8 Max · OpenCode Go Teams (per member) · $0.32258/MTok · 40.1529 · mediumQwen3.8 Max · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0094670075" data-score="25.1622" data-x="896.615" data-y="561.065" transform="translate(896.615 561.065)"><title>Qwen3.7 Plus · OpenCode Go · $0.00947/MTok · 25.1622 · mediumQwen3.7 Plus · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="true" data-price="0.0016099948" data-score="39.4562" data-x="1144.208" data-y="433.767" transform="translate(1144.208 433.767)"><title>DeepSeek V4.1 Flash · OpenCode Go / DeepSeek V4.1 Flash · Command Code GOAT · $0.00161/MTok · 39.4562 · mediumDeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified. / DeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.012622278" data-score="25.1622" data-x="856.413" data-y="561.065" transform="translate(856.413 561.065)"><title>Qwen3.7 Plus · OpenCode Go Plus · $0.01262/MTok · 25.1622 · mediumQwen3.7 Plus · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.017476407" data-score="25.1622" data-x="810.938" data-y="561.065" transform="translate(810.938 561.065)"><title>Qwen3.7 Plus · OpenCode Go Teams (per member) · $0.01748/MTok · 25.1622 · mediumQwen3.7 Plus · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="true" data-price="0.00096599691" data-score="39.4562" data-x="1215.600" data-y="433.767" transform="translate(1215.600 433.767)"><title>DeepSeek V4.1 Flash · OpenCode Go · $0.00097/MTok · 39.4562 · mediumDeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-11" y="-11" width="22" height="22" rx="6" fill="#FFF" stroke="#0F766E" stroke-width="1.35"/>
 <circle r="4" fill="#0F766E"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.031826862" data-score="35.9968" data-x="727.158" data-y="464.576" transform="translate(727.158 464.576)"><title>DeepSeek V4 Pro · OpenCode Go · $0.03183/MTok · 35.9968 · mediumDeepSeek V4 Pro 0813 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0019320031" data-score="39.4562" data-x="1118.726" data-y="433.767" transform="translate(1118.726 433.767)"><title>DeepSeek V4.1 Flash · OpenCode Go Plus · $0.00193/MTok · 39.4562 · mediumDeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0032199897" data-score="34.3305" data-x="1047.335" data-y="479.415" transform="translate(1047.335 479.415)"><title>DeepSeek V4 Flash · OpenCode Go · $0.00322/MTok · 34.3305 · mediumDeepSeek V4 Flash 0731 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0018399941" data-score="39.4562" data-x="1125.546" data-y="433.767" transform="translate(1125.546 433.767)"><title>DeepSeek V4.1 Flash · OpenCode Go Teams (per member) · $0.00184/MTok · 39.4562 · mediumDeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0064399794" data-score="34.8391" data-x="950.462" data-y="474.886" transform="translate(950.462 474.886)"><title>DeepSeek V4 Flash Vision Exp · OpenCode Go · $0.00644/MTok · 34.8391 · mediumDeepSeek V4 Flash Vision (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.031826862" data-score="35.9968" data-x="727.158" data-y="464.576" transform="translate(727.158 464.576)"><title>DeepSeek V4 Pro · OpenCode Go / DeepSeek V4 Pro · OpenCode Go Plus · $0.03183/MTok · 35.9968 · mediumDeepSeek V4 Pro 0813 (max) · Exact served-model reference; quota-measurement effort is unverified. / DeepSeek V4 Pro 0813 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0067249496" data-score="25.2973" data-x="944.410" data-y="559.862" transform="translate(944.410 559.862)"><title>Hy3 · OpenCode Go · $0.00672/MTok · 25.2973 · mediumHy3 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.047744092" data-score="35.9968" data-x="670.480" data-y="464.576" transform="translate(670.480 464.576)"><title>DeepSeek V4 Pro · OpenCode Go Teams (per member) · $0.04774/MTok · 35.9968 · mediumDeepSeek V4 Pro 0813 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="false" data-price="0.090334237" data-score="43.7343" data-x="581.362" data-y="395.668" transform="translate(581.362 395.668)"><title>Step 5 Preview · OpenCode Go · $0.09033/MTok · 43.7343 · mediumStep 5 Preview · Exact served-model reference; quota-measurement effort is unverified.</title>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0067249496" data-score="25.2973" data-x="944.410" data-y="559.862" transform="translate(944.410 559.862)"><title>Hy3 · OpenCode Go / Hy3 · OpenCode Go Plus · $0.00672/MTok · 25.2973 · mediumHy3 · Exact served-model reference; quota-measurement effort is unverified. / Hy3 · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.01241542" data-score="25.2973" data-x="858.723" data-y="559.862" transform="translate(858.723 559.862)"><title>Hy3 · OpenCode Go Teams (per member) · $0.01242/MTok · 25.2973 · mediumHy3 · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0F766E" opacity=".68"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.10857763" data-score="46.9727" data-x="555.653" data-y="366.828" transform="translate(555.653 366.828)"><title>GPT 5.6 Sol · Command Code GOAT · $0.10858/MTok · 46.9727 · mediumGPT-5.6 Sol (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
@@ -407,6 +493,9 @@
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#DBA6FA" opacity=".68" stroke="#9571AA" stroke-width=".9"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0091141086" data-score="33.6963" data-x="901.924" data-y="485.063" transform="translate(901.924 485.063)"><title>Qwen3.8 27B · Command Code GOAT · $0.00911/MTok · 33.6963 · mediumQwen3.8 27B (xhigh) · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#DBA6FA" opacity=".68" stroke="#9571AA" stroke-width=".9"/>
+</g>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0016099948" data-score="39.4562" data-x="1144.208" data-y="433.767" transform="translate(1144.208 433.767)"><title>DeepSeek V4.1 Flash · Command Code GOAT · $0.00161/MTok · 39.4562 · mediumDeepSeek V4.1 Flash (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#DBA6FA" opacity=".68" stroke="#9571AA" stroke-width=".9"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0016099948" data-score="34.3305" data-x="1144.208" data-y="479.415" transform="translate(1144.208 479.415)"><title>DeepSeek V4 Flash · Command Code GOAT · $0.00161/MTok · 34.3305 · mediumDeepSeek V4 Flash 0731 (max) · Exact served-model reference; quota-measurement effort is unverified.</title>
@@ -620,9 +709,8 @@
 <rect x="-11" y="-11" width="22" height="22" rx="6" fill="#FFF" stroke="#00F4E5" stroke-width="1.35"/>
 <circle r="4" fill="#00F4E5"/>
 </g>
-<g class="point" data-billing="subscription" data-frontier="true" data-price="0.0012006697" data-score="19.4813" data-x="1185.206" data-y="611.657" transform="translate(1185.206 611.657)"><title>Step 3.7 Flash · Step Plan Max (¥699) · $0.0012/MTok · 19.4813 · mediumStep 3.7 Flash [AA estimate] · Exact served-model reference; quota-measurement effort is unverified.</title>
-<rect x="-11" y="-11" width="22" height="22" rx="6" fill="#FFF" stroke="#00F4E5" stroke-width="1.35"/>
-<circle r="4" fill="#00F4E5"/>
+<g class="point" data-billing="subscription" data-frontier="false" data-price="0.0012006697" data-score="19.4813" data-x="1185.206" data-y="611.657" transform="translate(1185.206 611.657)"><title>Step 3.7 Flash · Step Plan Max (¥699) · $0.0012/MTok · 19.4813 · mediumStep 3.7 Flash [AA estimate] · Exact served-model reference; quota-measurement effort is unverified.</title>
+<rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#00F4E5" opacity=".68" stroke="#00A69C" stroke-width=".9"/>
 </g>
 <g class="point" data-billing="subscription" data-frontier="false" data-price="0.0036413211" data-score="43.7343" data-x="1030.149" data-y="395.668" transform="translate(1030.149 395.668)"><title>Step 5 Preview · Step Plan Max (¥699) · $0.00364/MTok · 43.7343 · mediumStep 5 Preview · Exact served-model reference; quota-measurement effort is unverified.</title>
 <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#00F4E5" opacity=".68" stroke="#00A69C" stroke-width=".9"/>
@@ -932,22 +1020,10 @@
 <text x="1094.550" y="286.630" font-size="14" fill="#566150" text-anchor="start" font-weight="400" class="number">$0.00273</text>
 </g>
 <g class="front-label" data-model="deepseek-v4.1-flash">
-<path d="M1146.127,418.891Q1146.127,402.767 1148.208,402.767" stroke="#C4CDC3" stroke-width=".8" fill="none"/>
-<text x="1154.208" y="383.767" font-size="16" fill="#343C34" text-anchor="start" font-weight="400" class="label-name">DeepSeek V4.1 Flash · max</text>
-<text x="1154.208" y="403.767" font-size="11.5" fill="#8B9487" text-anchor="start" font-weight="400" >OpenCode Go / Command Code GOAT</text>
-<text x="1154.208" y="423.767" font-size="14" fill="#566150" text-anchor="start" font-weight="400" class="number">$0.00161</text>
-</g>
-<g class="front-label" data-model="mimo-v2.6-flash">
-<path d="M1181.846,433.429Q1181.846,434.765 1181.435,434.765" stroke="#C4CDC3" stroke-width=".8" fill="none"/>
-<text x="1187.435" y="447.765" font-size="16" fill="#343C34" text-anchor="start" font-weight="400" class="label-name">MiMo V2.6 Flash</text>
-<text x="1187.435" y="467.765" font-size="11.5" fill="#8B9487" text-anchor="start" font-weight="400" >OpenCode Go</text>
-<text x="1187.435" y="487.765" font-size="14" fill="#566150" text-anchor="start" font-weight="400" class="number">$0.00127</text>
-</g>
-<g class="front-label" data-model="step-3.7-flash">
-<path d="M1183.453,596.760Q1183.453,560.657 1179.206,560.657" stroke="#C4CDC3" stroke-width=".8" fill="none"/>
-<text x="1185.206" y="541.657" font-size="16" fill="#343C34" text-anchor="start" font-weight="400" class="label-name">Step 3.7 Flash [AA estimate]</text>
-<text x="1185.206" y="561.657" font-size="11.5" fill="#8B9487" text-anchor="start" font-weight="400" >Step Plan Max (¥699)</text>
-<text x="1185.206" y="581.657" font-size="14" fill="#566150" text-anchor="start" font-weight="400" class="number">$0.0012</text>
+<path d="M1217.519,418.891Q1217.519,402.767 1219.600,402.767" stroke="#C4CDC3" stroke-width=".8" fill="none"/>
+<text x="1225.600" y="383.767" font-size="16" fill="#343C34" text-anchor="start" font-weight="400" class="label-name">DeepSeek V4.1 Flash · max</text>
+<text x="1225.600" y="403.767" font-size="11.5" fill="#8B9487" text-anchor="start" font-weight="400" >OpenCode Go</text>
+<text x="1225.600" y="423.767" font-size="14" fill="#566150" text-anchor="start" font-weight="400" class="number">$0.00097</text>
 </g>
 <g class="front-label" data-model="step-3.5-flash">
 <path d="M1292.971,645.463Q1292.971,641.074 1289.209,641.074" stroke="#C4CDC3" stroke-width=".8" fill="none"/>
@@ -994,7 +1070,7 @@
 <path d="M400.91999999999996 849l5 5-5 5-5-5Z" fill="none" stroke="#8B958D" stroke-width="1.2"/>
 <text x="414.920" y="858.000" font-size="12" fill="#687168" text-anchor="start" font-weight="400" >Metered API</text>
 <text x="56.000" y="898.000" font-size="12" fill="#727B72" text-anchor="start" font-weight="400" >Default month = 4 weeks; Kimi pool = 5×, Droid = 2× weekly · Dollar/credit: 97% cache / 2.5% input / 0.5% output · Direct totals unchanged</text>
-<text x="1384.000" y="898.000" font-size="12" fill="#727B72" text-anchor="end" font-weight="400" >265 subscription positions / 19 API positions / 6 frontier positions</text>
+<text x="1384.000" y="898.000" font-size="12" fill="#727B72" text-anchor="end" font-weight="400" >295 subscription positions / 19 API positions / 4 frontier positions</text>
 <text x="56.000" y="922.000" font-size="11" fill="#929A90" text-anchor="start" font-weight="400" >Claude Max: permanent allowance estimate from Sep 14; Pro: historical Opus 4.8 measurement. Y uses the top archived variant per model.</text>
 <text x="56.000" y="943.000" font-size="11" fill="#929A90" text-anchor="start" font-weight="400" >Subscriptions and metered APIs share one frontier; line segments are visual guides, not purchasable plans.</text>
 <text x="1384.000" y="943.000" font-size="11" fill="#929A90" text-anchor="end" font-weight="400" >artificialanalysis.ai/leaderboards/models</text>
