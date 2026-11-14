@@ -44,6 +44,16 @@ jobs:
           assert '"devin_pro", "Devin Pro"' in script, "Devin model table missing"
           conv=json.loads(Path("data/conventions.json").read_text(encoding="utf-8-sig"))
           assert conv["updatedAt"]=="2026-11-14" and "devin_swe2" in conv["permanentBenefits"]
+          # The upstream 10/30 one-off date overrides must not shadow the new
+          # family-wide 11/14 OpenCode Go/Plus/Teams official table.
+          import re
+          bp=Path("scripts/build_adopted.py")
+          source=bp.read_text(encoding="utf-8-sig")
+          for model in ("deepseek-v4.1-flash","kimi-k3.1-pro","minimax-m3.1-flash"):
+              rx=re.compile(r'^\\s*\\("opencode_go", "'+re.escape(model)+r'"\\): \\("2026-10-30", "official"\\),\\n',re.M)
+              source,count=rx.subn("",source)
+              assert count==1, f"Expected one stale date override for {model}, got {count}"
+          bp.write_text(source,encoding="utf-8")
           p=Path("data/i18n/adopted.en.json")
           current=json.loads(p.read_text(encoding="utf-8-sig"))
           upstream=json.loads(subprocess.check_output(["git","show","HEAD:data/i18n/adopted.en.json"],text=True))
