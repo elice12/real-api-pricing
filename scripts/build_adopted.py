@@ -1631,6 +1631,7 @@ EXCLUDED_SUBSCRIPTIONS = {
 # derived=由锚点按倍率/档间比例派生，沿用锚点日期，data_date_from 记锚点。
 DATA_DATES = {
     ("command_code_goat", "glm-5.3"): ("2026-11-14", "official"),
+    ("command_code_goat", "glm-5.3-flash"): ("2026-11-14", "official"),
     ("command_code_goat", "deepseek-v4.1-flash"): ("2026-11-14", "official"),
     ("command_code_goat", "ling-3.1-flash"): ("2026-11-14", "official"),
     ("minimax_m_plan_go_cn", "minimax-m3.1-flash-preview"): ("2026-10-01", "sample"),
