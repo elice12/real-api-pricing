@@ -51,6 +51,20 @@
           "outputUsdPerMTok": 0.9,
           "promoExpiry": null,
           "modelDataDate": "2026-11-14"
+        },
+        {
+          "model": "glm-5.3-flash",
+          "beforeMonthlyBudgetUsd": 80,
+          "afterMonthlyBudgetUsd": 80,
+          "planCapBeforeUsd": 70,
+          "planCapAfterUsd": 100,
+          "previousEffectiveBudgetUsd": 70,
+          "newEffectiveBudgetUsd": 80,
+          "cachedUsdPerMTok": 0.03,
+          "inputUsdPerMTok": 0.15,
+          "outputUsdPerMTok": 0.5,
+          "modelDataDate": "2026-11-14",
+          "rationale": "Cap lift raises the standing $80 model limit's effective spend from $70 to $80; exclude the separate official $100 promotion marked while capacity lasts."
         }
       ],
       "deferred": [
@@ -58,7 +72,7 @@
           "model": "glm-5.3-flash",
           "officialMonthlyBudgetUsd": 100,
           "previousAdoptedMonthlyBudgetUsd": 80,
-          "reason": "Official pricing-limits deal flags the $100 benefit 'while capacity lasts' without a date or enduring minimum; retain normal $80 until end date or guaranteed permanent tier is verified."
+          "reason": "The normal standing model budget is still adopted at $80; the new shared cap $100 raises effective usage from $70 to $80. The extra advertised $100 model budget is explicitly 'while capacity lasts' without a dated expiry and remains excluded."
         },
         {
           "scope": "other newer GOAT models",
@@ -139,5 +153,5 @@
       "reason": "No official absolute post-transition model-specific monthly token allowance has been published; do not alter November usage measurements."
     }
   ],
-  "adoptedScope": "Only three GOAT plan/model datapoints and its shared ceiling; current repository snapshot date remains 2026-11-14; no Cursor/Claude/OpenAI quota token estimates."
+  "adoptedScope": "GOAT shared ceiling with four affected model rows (GLM-5.3 Flash's ordinary $80 tier becomes effective after cap lift); Cursor/Claude/OpenAI research only."
 }
