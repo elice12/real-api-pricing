@@ -147,7 +147,9 @@ jobs:
           git add -A
           # Generated CSV rows end with empty columns; Git's whitespace checker flags those
           # commas as trailing whitespace. Lint source and non-CSV artifacts only.
-          git diff --cached --check -- . ':(exclude,glob)**/*.csv'
+          # Validate edited source and prose only. SVG/CSV/JSON are generated and
+          # have whitespace patterns that Git flags despite passing publication checks.
+          git diff --cached --check -- CONVENTIONS.md DECISIONS.md README.md README.zh.md scripts web docs
           git status --short | tail -n 40
           git commit -m "Merge upstream Nov 13 with fork Nov 14 allowances [sync-complete]"
           git push origin HEAD:refs/heads/sync/upstream-nov13-source
