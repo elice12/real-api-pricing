@@ -2,7 +2,7 @@
 
 # Real API Pricing
 
-> **Freshness notice (2026-11-14):** Adopted values and published charts still reflect the **2026-10-16** snapshot. New official evidence for Devin SWE-2, OpenCode Go and OpenAI's upcoming December usage change is documented in the [Nov 14 review](docs/refresh-2026-11-14.md), but **not yet included in calculated rankings**. Do not treat expired historical promotion labels as current policy.
+> **2026-11-14 adoption refresh:** Permanent free Devin SWE-2 in Desktop/CLI and official per-model allowances for OpenCode Go/Go Plus/Go Teams are now adopted; other vendors retain their individual evidence dates. OpenAI's announced December shared allowance remains policy-only, not new token measurements. See [November review](docs/refresh-2026-11-14.md).
 
 AI coding subscriptions sell a monthly fee, not a per-token price. This project works out what each plan actually costs per million tokens, then plots that price against public leaderboard scores to show which plans give the most capability for the money.
 
@@ -53,7 +53,7 @@ guides price, allowance and plan comparisons with this CLI. In Codex, invoke
 - **Confidence.** Every row is rated high, medium or low. High means a dashboard back-calculation, a controlled test or an official table. Medium means an official multiplier applied to a high-confidence anchor, or several consistent independent sources. Low means a single report or a cross-plan assumption. Derived values are never presented as measurements.
 - **One plan, several models.** Each model on a plan gets its own point. Those allowances are alternatives and do not add up.
 - **Scores** are copied from each leaderboard and never mixed across boards. Static charts use each model's highest archived configuration.
-- **Free during a promotion.** A model that a plan temporarily doesn't meter is drawn at ≈$0 on a dedicated slot at the right edge. There are <!-- stat:points_unmetered -->1<!-- /stat --> such points at the moment: SWE-2 on Devin Pro, until 2026-10-31.
+- **Zero marginal token charge.** An eligible model can appear at nominal ≈$0 on a dedicated right-edge slot. There are <!-- stat:points_unmetered -->1<!-- /stat --> such points: SWE-2 on Devin Pro in Desktop/CLI, permanently free since the Nov 12 announcement. This is not a claim of unlimited throughput or zero subscription cost.
 
 Every adopted value, its evidence and the reason for the choice: [DECISIONS.md](DECISIONS.md) and the `decision_note` column of [adopted.csv](data/adopted.csv).
 
@@ -155,7 +155,7 @@ Chinese charts count tokens in 亿 (100 million): 77.37 亿 = 7.737 billion.
 |---|---:|
 | All plan × model points | <!-- stat:points_total -->332<!-- /stat --> |
 | Subscriptions with a monthly allowance | <!-- stat:points_allowance -->310<!-- /stat --> |
-| Free during a promotion (≈$0) | <!-- stat:points_unmetered -->1<!-- /stat --> |
+| Zero marginal token charge (≈$0) | <!-- stat:points_unmetered -->1<!-- /stat --> |
 | Metered APIs at list price | <!-- stat:points_metered -->21<!-- /stat --> |
 
 | Leaderboard | Scored points |
@@ -169,7 +169,7 @@ Chinese charts count tokens in 亿 (100 million): 77.37 亿 = 7.737 billion.
 | Terminal-Bench 4.0 (AA) | <!-- stat:scored_aa_terminal_bench_4 -->279<!-- /stat --> |
 | DeepSWE v1.1 | <!-- stat:scored_deepswe_1_1 -->195<!-- /stat --> |
 
-The largest plan families are Command Code GOAT (<!-- stat:plans_command_code_goat -->59<!-- /stat --> points), MiMo Token Plan (<!-- stat:plans_mimo_token -->32<!-- /stat -->), OpenCode Go (<!-- stat:plans_opencode_go -->30<!-- /stat -->), Droid Max (<!-- stat:plans_droid_max -->27<!-- /stat -->), Ollama (<!-- stat:plans_ollama -->22<!-- /stat -->) and Step Plan (<!-- stat:plans_step_plan -->12<!-- /stat -->).
+The largest plan families are Command Code GOAT (<!-- stat:plans_command_code_goat -->59<!-- /stat --> points), MiMo Token Plan (<!-- stat:plans_mimo_token -->32<!-- /stat -->), OpenCode Go/Plus/Teams (<!-- stat:plans_opencode_go -->30<!-- /stat -->), Droid Max (<!-- stat:plans_droid_max -->27<!-- /stat -->), Ollama (<!-- stat:plans_ollama -->22<!-- /stat -->) and Step Plan (<!-- stat:plans_step_plan -->12<!-- /stat -->).
 
 **Downloads:** [adopted values (CSV)](data/adopted.csv) · [computed points (CSV)](derived/points.csv) / [JSON](derived/points.json) · [data notes](data/README.md) · [dated evidence](data/research/)
 
@@ -182,7 +182,7 @@ The largest plan families are Command Code GOAT (<!-- stat:plans_command_code_go
 - Score intervals are kept (visible on hover in the interactive views) but don't yet affect which points are on the frontier. Confidence labels are qualitative, not error bars.
 - Source task costs are kept as separate fields. They are not the cost of the same task on a subscription.
 - Tokenizer differences between vendors are not corrected.
-- Promotional ≈$0 points have to be re-checked when the promotion ends.
+- ≈$0 points require periodic rate-limit and eligibility checks; temporary promotions also require expiry checks.
 
 ## Reproduce, contribute, credit
 
