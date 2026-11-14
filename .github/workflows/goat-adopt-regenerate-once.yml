@@ -57,7 +57,10 @@ jobs:
               note("glm-5.3-flash"):
                 "Added 2.2631B: min(shared monthly pool $100, model allowance $80) / project standard workload blended price; official standing model allowance $80; official $100 boost marked while capacity lasts with no end date, excluded from permanent comparison; crossvendor-official-round2-2026-11-14.json. Processing fee ignored; allowances not additive; no usage-panel token+% screenshot, derived from official credits and prices",
               note("ling-3.1-flash"):
-                "Added 1.4245B: min(shared monthly pool $100, model allowance $100) / project standard workload blended price; new official row; per-model credits $100 reverified 2026-11-14; effective = min($100 shared pool, $100) = $100; crossvendor-official-round2-2026-11-14.json. Three-part prices unchanged cached/input/output=$0.06/$0.30/$0.90; goat-ling31-flash-round1-2026-10-15.json; goat-ling31-flash-round2-2026-10-16.json. Processing fee ignored; allowances not additive; no usage-panel token+% screenshot, derived from official credits and prices"
+                next(e["en"] for e in old["entries"] if "goat-ling31-flash-round2-2026-10-16.json" in e["zh"])
+                  .replace("Added 997.2M:", "Added 1.4245B:")
+                  .replace("min(shared monthly pool $70, model allowance $100)", "min(shared monthly pool $100, model allowance $100)")
+                  .replace("effective = min($70 shared pool, $100) = $70", "effective = min($100 shared pool, $100) = $100; crossvendor-official-round2-2026-11-14.json")
           }
           deep_src=rows[("command_code_goat","deepseek-v4.1-flash")]["source"]
           special[deep_src]="https://commandcode.ai/docs/plans/goat official per-model allowance and three-part pricing; https://commandcode.ai/pricing; GOAT up to $100 model-specific credits (2026-11-14); command-code-goat-deepseek-round2-2026-09-30.json"
