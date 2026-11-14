@@ -1,0 +1,141 @@
+name: Reconcile upstream with Nov 14 adoption (one-off)
+on:
+  push:
+    branches: [sync/upstream-nov13-source]
+permissions:
+  contents: write
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONIOENCODING: utf-8
+      MPLBACKEND: Agg
+      CHART_FONT_FALLBACK: "1"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Merge fork main into upstream branch without overwriting upstream-only changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git fetch origin main
+          git merge --no-commit --no-ff -X theirs origin/main || true
+          while IFS= read -r -d '' f; do
+            echo "RESOLVE fork-side conflicting path: $f"
+            if git checkout --theirs -- "$f" 2>/dev/null; then
+              git add -- "$f"
+            else
+              git rm -f -- "$f"
+            fi
+          done < <(git diff --name-only --diff-filter=U -z)
+          test -z "$(git diff --name-only --diff-filter=U)"
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          script=Path("scripts/build_adopted.py").read_text(encoding="utf-8-sig")
+          assert "OPENCODE_GO_TIERS" in script, "Fork OpenCode 3-tier entitlement lost"
+          assert "SWE2_BENEFIT" in script, "Permanent Devin benefit lost"
+          assert "CHATGPT_PLUS_SOL61_WEEK_20261109_WORTH_USD" in script, "Upstream Nov 10 ChatGPT sample lost"
+          assert '"devin_pro", "Devin Pro"' in script, "Devin model table missing"
+          conv=json.loads(Path("data/conventions.json").read_text(encoding="utf-8-sig"))
+          assert conv["updatedAt"]=="2026-11-14" and "devin_swe2" in conv["permanentBenefits"]
+          p=Path("data/i18n/adopted.en.json")
+          current=json.loads(p.read_text(encoding="utf-8-sig"))
+          upstream=json.loads(subprocess.check_output(["git","show","HEAD:data/i18n/adopted.en.json"],text=True))
+          keys={r["zh"] for r in current["entries"]}
+          for r in upstream["entries"]:
+              if r["zh"] not in keys:
+                  current["entries"].append(r)
+                  keys.add(r["zh"])
+          p.write_text(json.dumps(current,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          p=Path("DECISIONS.md")
+          current=p.read_text(encoding="utf-8")
+          upstream_text=subprocess.check_output(["git","show","HEAD:DECISIONS.md"],text=True)
+          if "## 2026-11-10" not in current:
+              start=upstream_text.index("## 2026-11-10")
+              end=upstream_text.index("## 2026-11-01",start)
+              section=upstream_text[start:end]
+              index=current.index("## ",current.index("## 2026-11-14")+4)
+              current=current[:index]+section+current[index:]
+              p.write_text(current,encoding="utf-8")
+          print("Selective merge checks OK; upstream Nov 10 decisions and translations retained")
+          PY
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          npm ci
+          npm --prefix web ci
+      - name: Rebuild full adopted data, derived data, translation and charts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_adopted.py > /dev/null
+          python scripts/compute.py > /dev/null
+          python scripts/checks/verify_i18n.py --sync
+          python scripts/checks/verify_i18n.py
+          python scripts/readme_stats.py
+          python scripts/checks/verify_benchmark_configs.py
+          python scripts/checks/verify_aa_snapshot.py
+          python scripts/checks/verify_deepswe.py
+          python scripts/plot_svg.py > /dev/null
+          node scripts/render_svg.cjs > /dev/null
+          python scripts/build_html.py > /dev/null
+          mkdir -p _build
+          python scripts/plot_quotas.py > _build/sync-plot.log 2>&1 || { tail -n 100 _build/sync-plot.log; exit 1; }
+          node scripts/checks/verify_configuration_html.cjs
+          python scripts/checks/verify_fee_bands.py
+          python scripts/checks/verify_chart_labels.py
+          python scripts/publish_charts.py
+          python scripts/checks/verify_svg.py
+          python scripts/checks/verify_label_overlap.py
+          python scripts/checks/verify_four_boards.py
+          python scripts/checks/verify_publication.py
+          python scripts/checks/verify_palette.py
+          npm --prefix web test
+          npm --prefix web run build
+      - name: Check upstream measurements and fork entitlements survived
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv, subprocess, io, json
+          from pathlib import Path
+          def parse(t):
+              return {(r["plan_id"],r["served_model"]):r for r in csv.DictReader(io.StringIO(t))}
+          final=parse(Path("data/adopted.csv").read_text(encoding="utf-8-sig"))
+          old=parse(subprocess.check_output(["git","show","HEAD:data/adopted.csv"],encoding="utf-8-sig"))
+          def protected(k):
+              return k[0].startswith("opencode_go") or k==("devin_pro","swe-2")
+          mismatches=[(k,v,final.get(k)) for k,v in old.items() if not protected(k) and final.get(k)!=v]
+          assert not mismatches, f"Unrelated upstream adopted rows changed: {[(x[0]) for x in mismatches[:15]]}"
+          opencode=[(k,v) for k,v in final.items() if k[0].startswith("opencode_go")]
+          assert len(opencode)==87, f"Expected 87 OpenCode rows, got {len(opencode)}"
+          assert all(r["data_date"]=="2026-11-14" for _,r in opencode)
+          swe=final["devin_pro","swe-2"]
+          assert swe["unmetered"]=="true" and not swe["promo_until"] and swe["data_date"]=="2026-11-12"
+          assert len(final)>=len(old), f"Unexpected row loss: {len(final)} < {len(old)}"
+          print(f"PASS: upstream {len(old)} rows preserved outside OpenCode and SWE-2; merged {len(final)} rows, 87 OpenCode rows")
+          PY
+      - name: Commit validated two-parent merge and update only the sync branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm -f .github/workflows/sync-reconcile-once.yml
+          git add -A
+          git diff --cached --check
+          git status --short | tail -n 40
+          git commit -m "Merge upstream Nov 13 with fork Nov 14 allowances [sync-complete]"
+          git push origin HEAD:refs/heads/sync/upstream-nov13-source
