@@ -244,12 +244,25 @@ test("OpenCode Go includes paid Kimi and MiniMax models at standard workload", (
   assert.equal(kimi.real_usd_per_mtok, 0.19607843);
   assert.equal(minimax.real_usd_per_mtok, 0.010649627);
 });
-test("Command Code GOAT DeepSeek V4.1 Flash uses $80 credits capped by the $70 shared pool", () => {
-  const p = data.points.find((p) => p.id === "command_code_goat::deepseek-v4.1-flash")!;
-  // min($70 pool, $80 allowance) ÷ off-peak (97/2.5/0.5 × $0.003/$0.15/$0.60 = $0.00966/MTok).
-  assert.equal(p.monthly_yi, 72.464);
-  assert.equal(p.real_usd_per_mtok, 0.0013799956);
-  assert.equal(price(p.real_usd_per_mtok), "$0.00138");
+test("Command Code GOAT uses the November 14 $100 cap and model-specific credits", () => {
+  const deepseek = data.points.find((p) => p.id === "command_code_goat::deepseek-v4.1-flash")!;
+  // min($100 plan pool, $100 model allowance) / $0.00966 per MTok.
+  assert.equal(deepseek.monthly_yi, 103.52);
+  assert.equal(deepseek.real_usd_per_mtok, 0.00096599691);
+  assert.equal(price(deepseek.real_usd_per_mtok), "$0.000966");
+  assert.equal(deepseek.data_date, "2026-11-14");
+
+  const glm = data.points.find((p) => p.id === "command_code_goat::glm-5.3")!;
+  assert.equal(glm.monthly_yi, 2.264);
+  assert.equal(glm.data_date, "2026-11-14");
+
+  const ling = data.points.find((p) => p.id === "command_code_goat::ling-3.1-flash")!;
+  assert.equal(ling.monthly_yi, 14.245);
+  assert.equal(ling.data_date, "2026-11-14");
+
+  const glmFlash = data.points.find((p) => p.id === "command_code_goat::glm-5.3-flash")!;
+  // $100 is labeled "while capacity lasts"; retain the standing $80 assumption.
+  assert.equal(glmFlash.monthly_yi, 27.497);
 });
 test("Default selection includes every adopted point, including unscored models", () => {
   const rows = rowsFor(data, defaultState());
