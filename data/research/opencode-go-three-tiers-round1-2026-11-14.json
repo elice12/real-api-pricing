@@ -1,0 +1,48 @@
+{
+  "collectedAt": "2026-11-14",
+  "collectionMethod": "Official live OpenCode Go docs model-level Usage tables and token price tables for Go, Go Plus, Go Teams; no controlled saturation measurement.",
+  "source": "https://opencode.ai/docs/console/go/",
+  "status": "adopted",
+  "scope": "29 paid models across three plan tiers (87 subscription rows), all per-member where relevant; excludes temporary free models with unknown end dates.",
+  "planMonthlyPricesUsd": {
+    "opencode_go": 10,
+    "opencode_go_plus": 40,
+    "opencode_go_teams_per_member": 20
+  },
+  "modelUsageExamplesUsd": {
+    "deepseek_v41_flash": [
+      100,
+      200,
+      105
+    ],
+    "kimi_k31_pro": [
+      15,
+      60,
+      20
+    ],
+    "gemini_4_argon": [
+      30,
+      120,
+      35
+    ],
+    "glm_53_flash": [
+      60,
+      180,
+      65
+    ]
+  },
+  "formula": "monthly_yi = round(per_model_monthly_usage_usd / (0.97*cached_read_price_usd_per_mtok + 0.025*input_price_usd_per_mtok + 0.005*output_price_usd_per_mtok) / 100, 3)",
+  "limitations": [
+    "Per-model usage is not additive across models",
+    "5h 20%; weekly 50%; monthly 100%",
+    "Price variants use <=context-threshold and off-peak for scenario points; not general month-average estimates",
+    "Gemini 4 Argon 50% discount through 2026-11-30 (date-limited, pending expiry refresh)",
+    "DeepSeek Global region required; Muse Contributor may train on data and restricted regions; excluded Free temporary models",
+    "We intentionally do not re-apply the historical shared $60 cap; vendor docs describe per-model monthly allowances, not an across-model dollar pool."
+  ],
+  "sourceFiles": [
+    "scripts/build_adopted.py",
+    "data/conventions.json"
+  ],
+  "changeFromPrevious": "Remove delisted model entries Grok4.6/Kimi2.6/MiniMax2.7/V4 Flash/Vision etc, add Kimi3.1/Haiku5.5/MiniMax3.1/Hy4, rename Gemini 4 Argon Contributor to Argon and apply 50% expiry, introduce Plus and Teams."
+}
