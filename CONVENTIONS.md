@@ -52,7 +52,8 @@
 - **Step Plan**：按阶跃国内站官方月度 Credit 池（1M Credit = ¥1）经人民币三段价折算，用低缓存档 `lowCacheTokenMix`；国际站美元牌价不同，不采用；旧 Coding Plan 的 Prompt/5h 口径仅留作证据。
 - **Google**：Antigravity 额度按 API worth 合池扣减（官方机制，段内已实证）。实测样本按 Gemini 标价折 worth 后用低缓存档换算（实测缓存 82~84%，打不到标准档；2026-09-30 裁定，取代 2026-09-21 的 raw 口径）；Ultra 5x/20x 按官方 worth 倍率派生，置信度 low。
 - **汇率**：取 `conventions.json` 的 `usdPerCny`（历史字段名，实际方向为 CNY/USD），来源日期在 `exchangeRate`。不改历史 research 文件里的旧汇率。
-- **促销**：促销口径必须标截止日，到期后复核。订阅内明确不计额度的模型，真实单价记为 ≈$0，用专用刻度位表示。
+- **促销与永久免费权益**：临时促销必须标截止日并在到期后复核；2026-11-12 Cognition 官方公告将 Devin Pro/Max/Teams 的 SWE-2 Desktop/CLI 免费改为永久权益。仍可能存在独立 rate limit，不应将名义 ≈$0/MTok 解释为无限月吞吐；一般 Cloud 会话不包含在这项权益中。
+- **OpenCode Go/Plus/Teams（2026-11-14）**：按官网每模型月度 Usage 单独折算，5h/周/月窗口分别占该模型月额度的20%/50%/100%；不沿用历史 Go $60 共享池上限，各模型额度不可相加。限时免费但无已知结束日期的模型不纳入采用点；Gemini 4 Argon 五折价截至 2026-11-30。
 - **数据快照日期**：`data/conventions.json` 的 `updatedAt` 是网页与 README 显示的快照日期（经 compute.py 写入 `derived/points.json` 的 generatedAt）；改采用值或口径时同步改为当天；CI 会在 adopted.csv 变化而 updatedAt 未推进过 base 分支时报错；base 已是当天时，updatedAt 与 base 相同且为今天（UTC 或 UTC+8 任一）也算通过（`scripts/checks/verify_snapshot_date.py`）。
 
 ## 5. 出图规则
