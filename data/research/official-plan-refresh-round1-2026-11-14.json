@@ -1,0 +1,158 @@
+{
+  "collectedAt": "2026-11-14",
+  "collectionMethod": "Live reading of official vendor pricing, docs, help center, and dated announcement; no account-specific allowance measurements",
+  "status": "research_only_not_adopted",
+  "scope": "Time-sensitive official changes for Devin SWE-2, OpenCode Go, and OpenAI ChatGPT/Codex. Preserve historical evidence and adopted values until build_adopted.py plus generated outputs can be rebuilt and validated.",
+  "officialSources": [
+    {
+      "vendor": "Devin",
+      "url": "https://devin.ai/blog/devin-teams-plan",
+      "publishedAt": "2026-11-12",
+      "type": "dated_official_announcement"
+    },
+    {
+      "vendor": "Devin",
+      "url": "https://devin.ai/pricing",
+      "checkedAt": "2026-11-14",
+      "type": "official_pricing"
+    },
+    {
+      "vendor": "Devin",
+      "url": "https://docs.devin.ai/desktop/models",
+      "checkedAt": "2026-11-14",
+      "type": "official_docs"
+    },
+    {
+      "vendor": "OpenCode",
+      "url": "https://opencode.ai/docs/console/go",
+      "checkedAt": "2026-11-14",
+      "type": "official_plan_limits"
+    },
+    {
+      "vendor": "OpenAI",
+      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "checkedAt": "2026-11-14",
+      "type": "official_announcement"
+    }
+  ],
+  "records": [
+    {
+      "key": "devin_swe2_permanent_paid_self_serve",
+      "provider": "Devin",
+      "evidenceGrade": "high_official_announcement",
+      "effectiveAnnouncementDate": "2026-11-12",
+      "observed": "Official Devin Teams announcement says free SWE-2 in Devin Desktop and CLI is a permanent part of Teams, Pro and Max plans. Pricing lists Pro $20/month and Free use of SWE-2. This supersedes the repository's historical Oct 31 promotion assumption for these specific clients.",
+      "appliesTo": [
+        "Devin Pro",
+        "Devin Max",
+        "Devin Teams"
+      ],
+      "appliesIn": [
+        "Devin Desktop",
+        "Devin CLI"
+      ],
+      "doesNotProve": [
+        "Unmetered SWE-2 in ordinary Devin Cloud sessions",
+        "Unlimited throughput or absence of model-specific rate limits",
+        "Per-token entitlement of other models"
+      ],
+      "discrepancy": "As checked Nov 14, docs.devin.ai/desktop/models still describes SWE-2 free through Nov 30; the newer dated Nov 12 announcement explicitly calls this permanent.",
+      "currentRepositoryReference": "data/conventions.json promotions.devin_swe2 endDate=2026-10-31; Devin Pro × SWE-2 unmetered adopted row still calls it a promotion.",
+      "adoptionCandidate": "Change effective offer classification to permanent with channel-specific scope, remove expired promotion label, retain ≈$0 special position only if the project's independent unmetered-policy tests still hold. Do not treat Teams Free cloud's two concurrent sessions as unlimited.",
+      "adopted": false
+    },
+    {
+      "key": "devin_swe2_flash_distinct_offer",
+      "provider": "Devin",
+      "evidenceGrade": "high_official_docs",
+      "checkedAt": "2026-11-14",
+      "observed": "The official desktop models page states SWE-2 Flash is free until 2026-12-04 18:00 UTC, with list rates thereafter; this is a distinct model and distinct promotion from the permanent free SWE-2 entitlement.",
+      "freeUntilUtc": "2026-12-04T18:00:00Z",
+      "model": "SWE-2 Flash",
+      "adopted": false,
+      "reason": "No measured unlimited-throughput or adoption evidence; do not merge with the SWE-2 point."
+    },
+    {
+      "key": "opencode_go_plans",
+      "provider": "OpenCode Go",
+      "evidenceGrade": "high_official_docs",
+      "checkedAt": "2026-11-14",
+      "planMonthlyUsd": {
+        "Go": 10,
+        "GoPlus": 40,
+        "GoTeamsPerMember": 20
+      },
+      "observed": "Official Go docs list 31 named model entries, three plans, per-model windows: 5-hour 20%, weekly 50%, monthly 100% of the model monthly usage. Go Teams is priced per member and cannot be treated as the same individual plan.",
+      "highlightedModelMonthlyUsageUsd": {
+        "deepseek_v41_flash": {
+          "Go": 100,
+          "GoPlus": 200,
+          "GoTeamsPerMember": 105
+        },
+        "kimi_k31_pro": {
+          "Go": 15,
+          "GoPlus": 60,
+          "GoTeamsPerMember": 20
+        },
+        "gemini_4_argon": {
+          "Go": 30,
+          "GoPlus": 120,
+          "GoTeamsPerMember": 35
+        },
+        "gpt_6_luna": {
+          "Go": 15,
+          "GoPlus": 60,
+          "GoTeamsPerMember": 20
+        }
+      },
+      "note": "Examples only, not a full catalog replacement. Official model identifiers, restrictions, and prices must be re-parsed and reviewed in the existing source-code adoption pipeline.",
+      "adopted": false
+    },
+    {
+      "key": "opencode_gemini4_argon_discount",
+      "provider": "OpenCode Go",
+      "evidenceGrade": "high_official_docs",
+      "checkedAt": "2026-11-14",
+      "observed": "Official Go docs show Gemini 4 Argon (no longer Contributor) 50% off input/output/cache-read token prices through Nov 30, 2026, with month-usage credits unchanged.",
+      "modelSlug": "gemini-4-argon",
+      "discountEndDate": "2026-11-30",
+      "discountedUsdPerMTok": {
+        "cachedRead": 0.1,
+        "input": 2,
+        "output": 10
+      },
+      "regularUsdPerMTok": {
+        "cachedRead": 0.2,
+        "input": 4,
+        "output": 20
+      },
+      "monthlyUsageUsd": {
+        "Go": 30,
+        "GoPlus": 120,
+        "GoTeamsPerMember": 35
+      },
+      "adopted": false,
+      "reason": "Existing row uses prior identifier; date-bound promo now has a vendor-stated end date, so a time-scoped adopted point is technically possible, but requires reproducible code, outputs and current bench mapping."
+    },
+    {
+      "key": "openai_shared_chatgpt_codex_future",
+      "provider": "OpenAI",
+      "evidenceGrade": "high_official_help",
+      "checkedAt": "2026-11-14",
+      "announcedEffectiveWindow": "starting December 2026",
+      "observed": "OpenAI help says Plus, Pro, Business allowance will be shared between ChatGPT and Codex starting December 2026. Instant chat will not draw from the allowance.",
+      "implication": "Do not apply the future merged-pool rules to November measurements or invent absolute token allowances. Current Work/Codex allowance already follows a shared structure.",
+      "adopted": false
+    }
+  ],
+  "decision": "Research-only change. Do not advance conventions.updatedAt or regenerate adopted.csv/derived/charts without modifying authoritative build_adopted.py and running the full BUILD.md pipeline. Date-stamped evidence is a staging input, not the new price snapshot.",
+  "notFound": [
+    "Independent per-user SWE-2 Desktop/CLI rate-limit ceiling for permanent free entitlement",
+    "Absolute post-merger ChatGPT Plus/Pro/Business monthly tokens; implementation is future-dated",
+    "Measured Go Teams harness-specific quota utilization for the listed models"
+  ],
+  "discrepancies": [
+    "Devin dated blog permanent free SWE-2 vs older docs end date Nov 30",
+    "OpenCode 2026-11-14 official model set and usage limits vs snapshot 2026-10-16 in adopted data"
+  ]
+}

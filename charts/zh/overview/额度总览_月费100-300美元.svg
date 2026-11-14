@@ -8686,8 +8686,8 @@ z
    </g>
   </g>
   <g id="text_145">
-   <!-- † Kimi：¥199的K3点以K3-256K为主，约84%反推周池×5得14.51亿；K2.7纯样本11.9M/月0.76%得15.68亿；其余档按官方倍率推算；同名档国内外并点，月费/单价按国际版美元标价（$19/$39/$99），¥价为国内实付。OpenCode Go按官方美元池和三段价套统一标准负载换算。 -->
-   <g style="fill: #505a64" transform="translate(233.872734 1098) scale(0.09 -0.09)">
+   <!-- † Kimi：¥199的K3点以K3-256K为主，约84%反推周池×5得14.51亿；K2.7纯样本11.9M/月0.76%得15.68亿；其余档按官方倍率推算；同名档国内外并点，月费/单价按国际版美元标价（$19/$39/$99），¥价为国内实付。OpenCode Go/Go Plus/Go Teams 按官方每模型 Usage 与三段价套统一标准负载换算，模型额度不能相加。 -->
+   <g style="fill: #505a64" transform="translate(127.316953 1098) scale(0.09 -0.09)">
     <defs>
      <path id="DejaVuSans-8" d="M 4653 2053 
 Q 4381 2053 4226 1822 
@@ -8917,26 +8917,60 @@ z
     <use xlink:href="#DejaVuSans-3" transform="translate(11537.375 0)"/>
     <use xlink:href="#DejaVuSans-2a" transform="translate(11569.15625 0)"/>
     <use xlink:href="#DejaVuSans-52" transform="translate(11646.640625 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(11707.828125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(11822.578125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(11937.328125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12052.078125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12166.828125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12281.578125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12396.328125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12511.078125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12625.828125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12740.578125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12855.328125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12970.078125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13084.828125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13199.578125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13314.328125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13429.078125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13543.828125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13658.578125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13773.328125 0)"/>
-    <use xlink:href="#LastResortHE-Regular-6d" transform="translate(13888.078125 0)"/>
+    <use xlink:href="#DejaVuSans-12" transform="translate(11707.828125 0)"/>
+    <use xlink:href="#DejaVuSans-2a" transform="translate(11741.515625 0)"/>
+    <use xlink:href="#DejaVuSans-52" transform="translate(11819 0)"/>
+    <use xlink:href="#DejaVuSans-3" transform="translate(11880.1875 0)"/>
+    <use xlink:href="#DejaVuSans-33" transform="translate(11911.96875 0)"/>
+    <use xlink:href="#DejaVuSans-4f" transform="translate(11972.265625 0)"/>
+    <use xlink:href="#DejaVuSans-58" transform="translate(12000.046875 0)"/>
+    <use xlink:href="#DejaVuSans-56" transform="translate(12063.421875 0)"/>
+    <use xlink:href="#DejaVuSans-12" transform="translate(12115.515625 0)"/>
+    <use xlink:href="#DejaVuSans-2a" transform="translate(12149.203125 0)"/>
+    <use xlink:href="#DejaVuSans-52" transform="translate(12226.6875 0)"/>
+    <use xlink:href="#DejaVuSans-3" transform="translate(12287.875 0)"/>
+    <use xlink:href="#DejaVuSans-37" transform="translate(12319.65625 0)"/>
+    <use xlink:href="#DejaVuSans-48" transform="translate(12363.75 0)"/>
+    <use xlink:href="#DejaVuSans-44" transform="translate(12425.28125 0)"/>
+    <use xlink:href="#DejaVuSans-50" transform="translate(12486.5625 0)"/>
+    <use xlink:href="#DejaVuSans-56" transform="translate(12583.96875 0)"/>
+    <use xlink:href="#DejaVuSans-3" transform="translate(12636.0625 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12667.84375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12782.59375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(12897.34375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13012.09375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13126.84375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13241.59375 0)"/>
+    <use xlink:href="#DejaVuSans-3" transform="translate(13356.34375 0)"/>
+    <use xlink:href="#DejaVuSans-38" transform="translate(13388.125 0)"/>
+    <use xlink:href="#DejaVuSans-56" transform="translate(13461.3125 0)"/>
+    <use xlink:href="#DejaVuSans-44" transform="translate(13513.40625 0)"/>
+    <use xlink:href="#DejaVuSans-4a" transform="translate(13574.6875 0)"/>
+    <use xlink:href="#DejaVuSans-48" transform="translate(13638.171875 0)"/>
+    <use xlink:href="#DejaVuSans-3" transform="translate(13699.703125 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13731.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13846.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(13960.984375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14075.734375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14190.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14305.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14419.984375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14534.734375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14649.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14764.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14878.984375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(14993.734375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15108.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-a6" transform="translate(15223.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15337.984375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15452.734375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15567.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15682.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15796.984375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(15911.734375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(16026.484375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-7a" transform="translate(16141.234375 0)"/>
+    <use xlink:href="#LastResortHE-Regular-6d" transform="translate(16255.984375 0)"/>
    </g>
   </g>
   <g id="text_146">

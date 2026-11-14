@@ -82,7 +82,7 @@ function pareto(pts,yk){let best=-Infinity,f=[];for(const p of [...pts].sort((a,
 function fmt(v){return v==null?"—":v;}
 function hover(p,yk,vk){
   const board=yk.replace(/__score$/, ""),field=k=>p[board+"__"+k];
-  const price=p.unmetered?`$${p.price_usd} ÷ 无界（${promoText(p)}）→ ≈$0 促销价，非永久口径`:p.billing==="metered"?"按量 API（标价 × 项目标准负载）":p.local_price?`${p.local_price} / 国际 $${p.price_usd} ÷ ${p.monthly_yi} 亿 token`:`$${p.price_usd} ÷ ${p.monthly_yi} 亿 token`;
+  const price=p.unmetered?`$${p.price_usd} ÷ 无界（${promoText(p)}）→ ≈$0 名义 Token 增量费用（不保证无限速率）`:p.billing==="metered"?"按量 API（标价 × 项目标准负载）":p.local_price?`${p.local_price} / 国际 $${p.price_usd} ÷ ${p.monthly_yi} 亿 token`:`$${p.price_usd} ÷ ${p.monthly_yi} 亿 token`;
   return `<b>${p.label}</b><br>真实单价 <b>${priceLabel(p.real_usd_per_mtok)}/MTok</b><br>${price}`
    +(p.d!=null?`<br>标价混合 $${p.list_blended_usd_per_mtok}/MTok → d = ${(p.d*100).toFixed(1)}%`:"")
    +`<br>Y：${fmt(p[yk])}（${escapeHtml(locVariant(fmt(p[vk])))}）`
@@ -178,7 +178,7 @@ function draw(){
   const tickvals=hasZero?[...ticks,zeroX]:ticks,ticktext=hasZero?[...ticks.map(x=>"$"+x),"≈$0<br>不计额度"]:ticks.map(x=>"$"+x);
   const shapes=hasZero?[{type:"line",xref:"x",yref:"paper",x0:Math.log10(zeroX*1.8),x1:Math.log10(zeroX*1.8),y0:0,y1:1,line:{color:"#cfd4cf",width:1,dash:"dot"}}]:[];
   const layout={
-    title:{text:`${meta.name}  ·  快照 ${meta.snapshot} · 配置参考，非渠道实测`+(hasZero?" · ≈$0 为促销价（不计额度），非永久口径":""),x:0.04,y:0.98,font:{size:13}},
+    title:{text:`${meta.name}  ·  快照 ${meta.snapshot} · 配置参考，非渠道实测`+(hasZero?" · ≈$0 表示不计 Token 增量费用，仍可能受速率限制":""),x:0.04,y:0.98,font:{size:13}},
     shapes,
     xaxis:{type:"log",range:xrange,title:{text:"真实单价 $ / MTok    → 越右越便宜",standoff:18},tickvals,ticktext,gridcolor:"#ececec",griddash:"dash",zeroline:false},
     yaxis:{range:yrange,title:{text:meta.metric,standoff:12},gridcolor:"#ececec",griddash:"dash",zeroline:false,ticksuffix:meta.metric.includes("%")?"%":""},

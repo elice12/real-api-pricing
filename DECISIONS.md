@@ -3,6 +3,13 @@
 本地 `AGENTS.md`（不入库）只放 Agent 工作流程；口径与规则见 [`CONVENTIONS.md`](CONVENTIONS.md)；本文件记录每条采用值的取舍（旧值 → 新值 → 依据 → 未采来源）。
 最权威的表述仍在 `scripts/build_adopted.py` 的 `decision_note` 和 `data/research/` 证据文件里；本文件是按时间的索引摘要。改数只能改 `build_adopted.py`，改完在这里同步记一笔。
 
+## 2026-11-14 · Devin SWE-2 永久权益及 OpenCode Go 三档官方表（采用）
+
+- **Devin Pro × SWE-2**：2026-11-12 Cognition [官方公告](https://devin.ai/blog/devin-teams-plan)宣布 SWE-2 在 Devin Desktop 与 CLI 对 Pro/Max/Teams 永久免费；[定价页](https://devin.ai/pricing) Pro $20/月。保留最低合格档 Pro 的名义 ≈$0/MTok 特殊点，清空 `promo_until`，不再采用 2026-10-31 的历史促销截止日，数据日期改为 2026-11-12。边界：仅 Desktop/CLI，独立 rate limit 未经实测，不代表无限吞吐或 Cloud 会话免费；Max/Teams 更高费用点不重复画。旧促销原始证据不覆盖，见 `official-plan-refresh-round1-2026-11-14.json`。
+- **OpenCode Go/Go Plus/Go Teams**：按 [官方模型月 Usage 表](https://opencode.ai/docs/console/go/)独立核对 29 个付费模型 × 三档 = 87 个套餐×模型点。月费分别 $10/$40/$20（Teams 为每人），5h/周/月额度是各模型月 Usage 的20%/50%/100%；删除旧 Go 全局共享 $60 封顶假设。公式为月 Usage USD ÷ 统一混合价格，原始价格表及模型的高上下文、闲忙时变体保留为研究说明；多模型额度不可相加。排除无已核实结束日期的限时免费型号，保留 Gemini 4 Argon 的 50% 折扣价（至 2026-11-30，之后复核）。移除已不在当前 Go 列表的旧条目，新增 Kimi K3.1 Pro、Claude Haiku 5.5、MiniMax M3.1 Flash、Hy4，Gemini slug 由 Contributor 改为 Argon。见 `opencode-go-three-tiers-round1-2026-11-14.json`。
+- **OpenAI**：2026-12 起 ChatGPT 与 Codex 额度共享为官方前瞻公告，不修改 2026-11 实测值，不猜测绝对月 Token。
+- **发布时间与范围**：`conventions.updatedAt` 推进至 2026-11-14，但仅 Devin 与 OpenCode 分模型表刷新；其他厂商行仍保留自己的 `data_date`。按 `BUILD.md` 全链路生成后才作为一致的公开数据发布。
+
 ## 2026-11-10 · 三样本按百分点并入采用值
 
 - **Claude Pro × Opus 5.5**：30.54→**30.46 亿/月** high（Anthropic 档）。维护者 2026-11-07 22:22–23:38 PT 满 5h 窗（508 次）worth $38.424，周份额 **12.5%**（不是面板整数 13%）。写入是 1h，仍按 5 分钟写价 $5。与 #52 $587.52/183pp、Reddit 段 $40.48/13.333pp 合并：$3.19119/pp → 未舍入 30.465 亿，`round(..., 2)` 为 30.46。本窗单独 29.35 亿不替换旧样本。不采：13% 三源合并 30.39 亿、写按 1h $8 的 30.59 亿。Max 20x 的 Pro 腿仍是 #52+Reddit，保持 315.38 亿。
@@ -10,77 +17,6 @@
 - **Claude Pro × Fable 5.2**：新增 **7.82 亿/月** medium。44 次调用，周条 +7pp，段 worth $8.8109（1h 写价 $16）÷7pp×4 周 ÷ Anthropic 档 $0.644/MTok。没有更早的 Fable 5.2 样本，这 7pp 就是全部权重；不替换 Opus 5.5。50% 周帽不套。
 - **ChatGPT Plus × gpt-6.1-sol**：8.70→**15.16 亿/月** high。旧 31pp / 8.70 亿不入权。整周按 67% used 外推的 2.151 亿 / $38.47 已丢弃，不是输入。只平均两条标准负载周读数：日志 6 点 65%→71% 为 4.08 亿、$73.17；7 点下降为 3.50 亿、$62.71。中点周池 **3.79 亿、$67.94** ×4 周 = 15.16 亿/月（$20 / 15.16 亿 token = $0.013192612/MTok）。不采：含 2.151 亿的中点 12.48 亿，以及旧段与 $25.77/67pp 合并的 8.09 亿。Pro 5x/20x 不派生。
 - **证据**：`data/research/local-samples-round1-2026-11-09.json`（#226、#227、#206）。
-
-## 2026-11-01 · Devin Pro × Claude Opus 5.5 零起点样本 2.93 亿/月
-
-- **采用**：`devin_pro × claude-opus-5.5` = **2.93 亿/月 high**（Anthropic 档）。2026-11-01 新周窗从 0%/0% 起跑：Weekly 0%→28%（28pp）、Daily 0%→56%（56pp）；会话 14,307,644 tok（Opus 5.5 High 100%）。段 worth $8.5825（cache 13.375M×$0.2＋输入 0.850M×$5＋输出 0.083M×$20）÷28%×4 周＝$122.61 ÷ $0.419/MTok；真实单价 $0.0683/MTok。raw 口径 2.04 亿留作对照；28pp ±0.5 对应 2.88~2.98 亿。
-- **互证**：本段池 worth $30.65/周，落在 2026-10-31 四段 $29.44~33.73 区间中部；Daily×7=周池×3.5，与前四段（3.23/3.50/3.50/3.64）同结构。零起点、100% 单模型、28pp → high。
-- **证据**：`data/research/devin-pro-opus55-round1-2026-11-01.json`。
-
-## 2026-10-31 · Devin Pro × Claude Sonnet 5.5 首个采用点 6.44 亿/月
-
-- **背景**：维护者 Devin CLI 两个 `/usage` 检查点（同一会话，间隔约 11 分钟）：开始 Daily 0% / Weekly 47%，结束 Daily 13% / Weekly 53%；`/session-stats` 记 in 321,872 / out 41,557 / cache_read 8,035,217 = 8,398,646 tok，100% claude-sonnet-5.5 High。此前 Pro $20 档只有 SWE-2 促销 ≈$0 行，Max 行注记「Pro $20档无数据不派生」。
-- **采用**：新增 `devin_pro × claude-sonnet-5.5` = **6.44 亿/月 medium**（Anthropic 档）。段 worth $2.0238（读 8.035M×$0.1＋非缓存输入 0.322M×$2.5＋出 0.042M×$10）÷6%×4 周＝$134.92 list-worth ÷ Anthropic 档混合价 $0.2095/MTok；真实单价 $0.0311/MTok。
-- **窗口裁定**：采用周窗 6pp。Daily 13pp 反推日池 64.6M、×7=452M/周 > 周池约 140M，日上限更宽松，饱和使用时周池为绑定约束；Daily 只作一致性旁证。月份按通用 4 周。
-- **敏感性/对照**：raw total 口径 8,398,646÷6%×4 周 = 5.60 亿；6pp ±0.5pp 对应 5.94~7.03 亿；非缓存输入按普通输入价 $2.0 计得 5.93 亿不采。n=1、6pp 为整数读数 → medium。
-- **证据**：`data/research/devin-sonnet55-round1-2026-10-31.json`。
-- **第二点（同日 Haiku 5.5）**：`devin_pro × claude-haiku-5.5` = **82.09 亿/月 low**。同一账号紧接 Sonnet 段、同一周窗：Weekly 53%→55%（2pp）、Daily 13%→17%（4pp）；会话 24,455,396 tok（Haiku 98%、Compactor (Luna) 57k、Unknown 544k 2%）。段 worth $0.6290 ÷2%×4 周＝$125.80 ÷ Anthropic 档混合价 $0.015325/MTok。2pp 为整数读数，±0.5pp 对应 65.67~109.45 亿 → low。互证：本段池 $31.45/周 vs Sonnet 段 $33.73/周（差 6.8%）；按 Sonnet 锚比例派生 88.04 亿，同量级。若段内 Luna/Unknown 计费且价高，Haiku 实占 pp 更少、本值偏保守。
-- **证据（Haiku）**：`data/research/devin-haiku55-round1-2026-10-31.json`。
-- **第三点（同日 Muse Wonder）**：`devin_pro × muse-wonder` = **2.05 亿/月 medium**（raw total，未折算）。同一周窗：Weekly 55%→70%（15pp）、Daily 17%→47%（30pp）；会话 7,687,745 tok（Muse Wonder High 100%）。Muse Wonder 无已采用 API 标价 → 无法按标价折 worth，记 raw；本段负载 97.58%/1.84%/0.58% 与标准档 97%/2.5%/0.5% 极接近，两口径差 <2%。15pp ±0.5 对应 1.98~2.12 亿；Daily×7=周池×3.5，与前两段（3.23/3.50）同结构。池旁证：按 $32.6/周反推混合价≈$0.64/MTok，不采用。
-- **证据（Muse Wonder）**：`data/research/devin-muse-wonder-round1-2026-10-31.json`。
-- **第四点（同日 Fable 5.1）**：`devin_pro × claude-fable-5.1` = **1.46 亿/月 medium**（Anthropic 档）。同一周窗：Weekly 70%→83%（13pp）、Daily 47%→72%（25pp）；会话 4,466,768 tok（Fable 5.1 High 98%、Unknown 103k 2%）。段 worth $3.8270（cache 4.295M×$0.25＋输入 0.155M×$12.5＋输出 0.016M×$50）÷13%×4 周＝$117.76 ÷ $0.805/MTok。raw 口径 1.37 亿留作对照；13pp ±0.5 对应 1.41~1.52 亿。Daily×7=周池×3.64，与前三段（3.23/3.50/3.50）同结构。池 worth 本段 $29.44/周，比 Sonnet $33.73 低约 13%；若 Unknown 计费则 Fable 实占 pp 更少、本值偏保守；按 Sonnet 池反推 1.68 亿，同量级。
-- **证据（Fable 5.1）**：`data/research/devin-fable51-round1-2026-10-31.json`。
-
-## 2026-10-30 · ChatGPT Pro $100 档官方倍率 5x → 10x（$200 档 20x 不变）
-
-- **采用**：官方 $100/mo Pro 档相对 Plus 的额度倍率由 5x 提为 10x（2026-10-30 复核），$200 档维持 20x、价格均不变。plan id `chatgpt_pro_5x` → `chatgpt_pro_10x`（名称 "ChatGPT Pro 10x"），各值仍由 Plus 锚点 × 官方倍率派生：
-  - `gpt-5.6-sol` 30.8→**61.6 亿**（Plus 6.16 × 10，medium）；
-  - `gpt-5.6-luna` 352.91→**705.81 亿**（Plus 70.58 折算口径 × 10，medium）；
-  - `gpt-5.6-terra` 59.574→**119.147 亿**、`gpt-5.5` 23.829→**47.659 亿**（随 Sol 基准按三段 credits 混合价重推，口径不变）；
-  - `gpt-6-astra` 9.10→**18.20 亿**（由 Pro 20x Astra 加权簇 38.12 沿 Sol 档间比例派生，比例由 4× 变 2×，low）。
-- **级联**：$100 档每 token 单价减半（如 Luna $0.0028→$0.0014/MTok），由与 Plus 持平变为与 20x 档持平；Pro 20x、Plus、Go/Free 各行不变。`chatgpt_pro_20x` 各值与 DATA_DATES 均未动。
-- **未采**：无 Pro 10x 账号独立实测，learn.chatgpt.com 各模型 5h 消息区间未随档位复核（仍为 2026-09-05 读数），待补。
-- 证据：`data/research/chatgpt-pro-10x-round1-2026-10-30.json`。
-
-## 2026-10-30 · OpenCode Go × DeepSeek V4.1 Flash
-
-- Adopt the official Go per-model monthly allowance of $100, up from $80. At the existing standard workload and off-peak prices, $0.00966/MTok gives 103.520 亿 tokens/month (previously 82.816 亿). Peak token prices are twice off-peak, so actual usage varies. The official table and landing page show no limited-time label on this row; recheck when the catalog changes.
-- Evidence: `data/research/opencode-go-deepseek-v41-round7-2026-10-30.json`. Go Plus and Teams remain research-only.
-- Adopt OpenCode Go Kimi K3.1 Pro at 0.510 亿/month ($15 ÷ $0.294/MTok) and MiniMax M3.1 Flash at 9.390 亿/month ($20 ÷ $0.0213/MTok), using the current table and standard workload. The Kimi calculation excludes cache writes, which are priced at $2/MTok; actual use may be lower. MiniMax GA and preview remain separate model IDs. Earlier evidence: `opencode-go-kimi-k31-pro-round1-2026-10-24.json`, `opencode-go-minimax-m31-flash-round1-2026-10-23.json`.
-
-## 2026-10-27 · Kimi 会员 199（Allegretto）k3 换基 14.51 → 19.46 亿（维护者实测）
-
-- **采用**：`kimi_allegretto_cn × kimi-k3` = **19.46 亿/月 medium**。维护者 Allegretto（赠送）账号截图：k3.1-pro 单日用量 37,362,656 raw token ↔ 控制台「本月用量 1.92%」直推月池 19.46 亿；同窗「7天用量 9.61%」反推周池 3.89 亿，月/周 = 5.005 与月池=周池×5 吻合，同一笔消耗两口径互证。替换旧基 14.51 亿（2026-07 ccusage 243.74M/84% k3-256k 混合负载反推）——两次样本的模型等效不同（k3.1-pro vs k3-256k 混合），差距是模型换率而非纯池变化。k2.7-code 15.68 亿为独立纯模型面板实测，不随本次换基。
-- **级联**：`kimi_moderato_cn × kimi-k3` 2.90→3.89 亿（×4/20）；`kimi_allegro_cn × kimi-k3` 43.53→58.38 亿（×60/20）；v2 k3 行随基更新：Plus 1.45→1.95 亿、Pro 7.25→9.73 亿、Max 21.77→29.19 亿、Ultra 43.53→58.38 亿。v2 k2.7-code 行不变。
-- 证据：`data/research/kimi-allegretto-quota-round2-2026-10-27.json`（含 5h 图、7 天/月总百分位、排除的 52.59 亿全模型外推变体）。
-
-## 2026-10-26 · Kimi 新套餐（v2）额度 = 同价旧档（v1）× 1/2（裁定）
-
-- **采用**：新增 4 档 8 行，全部 derived·medium——`kimi_plus_cn`「Kimi Plus 99」k3 1.45 亿 / k2.7-code 1.57 亿；`kimi_pro_cn`「Kimi Pro 199」k3 7.25 亿 / k2.7-code 7.84 亿；`kimi_max_cn`「Kimi Max 699」k3 21.77 亿 / k2.7-code 23.52 亿；`kimi_ultra_cn`「Kimi Ultra 1399」k3 43.53 亿 / k2.7-code 47.04 亿。依据官方 2026-10-19 新套餐页：Go ¥49 / Plus ¥99 / Pro ¥199 / Max ¥699 / Ultra ¥1399（国际版 $19/$39/$99/$199），与旧音乐名档同价一一对应（Andante→Go、Moderato→Plus、Allegretto→Pro、Allegro→Max、Vivace→Ultra），取消周限额、只留滚动 5h + 月度共享池。2026-10-26 维护者裁定：新套餐额度 = 同价旧档 ×1/2。Ultra 无 v1 对照，按官方「Ultra Agent 额度为 Max 的 2 倍」（28× vs 14×）= Max×2 派生；Go 无 Kimi Code 不入点。新套餐行 `plan_gen=v2`（维护者口径 v1=旧音乐名档、v2=新名档），国际价按 KIMI_INTL 并点。
-- 证据：`data/research/kimi-v2-plans-round1-2026-10-26.json`（含维护者 k3.1-pro 周池截图测量 ≈10.95 亿等效——账号档位未确认，research-only 不采用）。
-
-## 2026-10-20 · OpenCode Go / Command Code GOAT 用量复核
-
-- **OpenCode Go**：官网文档已去掉共享 5h/周/月 $12/$30/$60 用量池，改为每个模型只按自己的月额度计（5h=20%、周=50%）。公式改为 模型月Usage ÷ 统一标准负载加权价；其余模型数值不变。
-  - `deepseek-v4.1-flash` 月额度 $60→$80：62.112→**82.816 亿**。
-  - 新增 `claude-haiku-5.5`（$15，≤100K 档 $0.01/$0.10/$0.50）：**10.204 亿**。
-  - 下架删除：`grok-4.6`、`kimi-k2.6`、`minimax-m2.7`、`deepseek-v4-flash`、`deepseek-v4-flash-vision-exp`（官网价表和 Model ID 表都已没有）。
-  - 未采：Go Plus $40 新套餐（还没有 plan_id）；MiniMax M3.1 Flash Free / LongCat 2.5 Preview Free / Beam Free（免费限时）；Step 5 Preview 4×、Gemini 4 Argon 2× 无截止日期。
-- **Command Code GOAT**（共享月池仍 $70）：
-  - `deepseek-v4.1-flash` credits $60→$80：min($70, $80) → 62.112→**72.464 亿**。10/20 01:00Z–10/21 01:00Z 限时 $100 不采。
-  - `glm-5.3-flash` credits $40→$80（$100 限时至 10/17 已结束）：11.315→**19.802 亿**。
-  - `gpt-5.6-sol` credits $70→$20：0.921→**0.263 亿**。
-  - `claude-sonnet-5.5` 缓存读 $0.20→$0.10（渠道跟进 10/08 厂商降价）：0.34→**0.508 亿**。
-  - 新增 `claude-haiku-5.5`（$20）：**13.605 亿**。
-  - 仅记 research：Qwen 3.8 Max Prime、Muse Spark Open、Nemotron 3.5 Super VL、Mistral Large 4、Jev 1.14.0、MiniMax M3.1 Flash。
-- 证据：`data/research/goat-opencode-catalogs-round4-2026-10-20.json`。
-
-## 2026-10-20 · DeepSeek V4.1 Flash 1017 榜单分数 & 榜单刷新
-
-- **背景**：DeepSeek 2026-10-17 发布 V4.1 Flash 1017，价格不变，API/网站/App 已切换。按 Arena 带日期版本归入同一 served model 的先例，1017 分数归到 `deepseek-v4.1-flash`（全部渠道，维护者确认）。
-- **分数**：AA 智力 39.46→45.10、AA TB4 26.77→33.84（`scores-aa-round6-supplement-2026-10-20.json`，只追加；当前 AA 页仅 273 模型，不整份替换 round5）；Code Arena 1664（10-19，旧版 1618）；Agent Arena 5.13（旧版 4.01）；厂商自报 TB4 42.3、DeepSWE 77.0（HF 模型卡，标 self-reported）。
-- **榜单刷新**：tbench.ai 官方榜 10-06 版 35 行（新增 Opus 5.5 / Sonnet 5.5 / GPT-6.1 Sol 等 8 行）；Opus 5.5 官方行取代其 66.4 自报。Code Arena / Agent Arena 10-19 快照。DeepSWE 官方榜（09-22）和 OpenDesign 均无 1017 行，未改。
-- 证据：`data/research/scores-*-2026-10-20.json`。
 
 ## 2026-10-16 · OpenCode Go × Step 5 Preview 首个采用点
 

@@ -1,23 +1,25 @@
 # Data / 数据
 
-Current snapshot: <!-- stat:snapshot -->2026-11-10<!-- /stat -->. The adopted dataset contains <!-- stat:points_total -->345<!-- /stat --> plan × model rows: <!-- stat:points_subscription -->324<!-- /stat --> subscription rows (<!-- stat:points_allowance -->323<!-- /stat --> with a monthly allowance plus one unmetered promotional row, Devin Pro × SWE-2 at ≈$0/MTok until 2026-10-31) and <!-- stat:points_metered -->21<!-- /stat --> metered API rows. This covers the project's adopted sample, not every plan or model on the market.
+> **2026-11-14 采用范围 / Adoption scope:** 已采用 Devin SWE-2 Desktop/CLI 永久权益及 OpenCode Go/Plus/Teams 官方分模型 Usage；其他厂商未全量刷新。[复核说明](../docs/refresh-2026-11-14.md)。/ Partial vendor refresh, not a universal market-wide as-of snapshot.
+
+Current snapshot: <!-- stat:snapshot -->2026-11-14<!-- /stat -->. The adopted dataset contains <!-- stat:points_total -->404<!-- /stat --> plan × model rows: <!-- stat:points_subscription -->383<!-- /stat --> subscription rows (<!-- stat:points_allowance -->382<!-- /stat --> with a monthly allowance plus one nominally unmetered Devin Pro × SWE-2 Desktop/CLI row, permanent benefit since 2026-11-12 (rate limits unmeasured)) and <!-- stat:points_metered -->21<!-- /stat --> metered API rows. This covers the project's adopted sample, not every plan or model on the market.
 
 These files are the public redacted edition. Original local evidence is backed up outside Git; see [PUBLICATION.md](../PUBLICATION.md). 本目录为公开脱敏版，保留数值、来源与取舍记录，原件仅存于 Git 忽略的本地备份。
 
-当前采用数据共<!-- stat:points_total -->345<!-- /stat -->条“套餐 × 模型”：<!-- stat:points_subscription -->324<!-- /stat -->条订阅（<!-- stat:points_allowance -->323<!-- /stat -->条有月额度，另1条不计额度促销点 Devin Pro × SWE-2，≈$0/MTok，促销至2026-10-31）、<!-- stat:points_metered -->21<!-- /stat -->条按量API，包括OpenCode Go <!-- stat:plans_opencode_go -->28<!-- /stat -->个模型、Command Code GOAT <!-- stat:plans_command_code_goat -->60<!-- /stat -->个模型、Ollama <!-- stat:plans_ollama -->22<!-- /stat -->个点、Step Plan 国内站<!-- stat:plans_step_plan -->12<!-- /stat -->个点、MiMo Token Plan <!-- stat:plans_mimo_token -->32<!-- /stat -->个点。所有采用数据都参与对应的全量输出；缺榜单分数的模型不进入该榜帕累托图，但仍保留在额度和单价数据中。
+当前采用数据共<!-- stat:points_total -->404<!-- /stat -->条“套餐 × 模型”：<!-- stat:points_subscription -->383<!-- /stat -->条订阅（<!-- stat:points_allowance -->382<!-- /stat -->条有月额度，另1条 Devin Pro × SWE-2 Desktop/CLI 永久不计 Token 增量费点（名义 ≈$0/MTok，速率限制未测））、<!-- stat:points_metered -->21<!-- /stat -->条按量API，包括OpenCode Go/Plus/Teams <!-- stat:plans_opencode_go -->87<!-- /stat -->个套餐×模型点、Command Code GOAT <!-- stat:plans_command_code_goat -->60<!-- /stat -->个模型、Ollama <!-- stat:plans_ollama -->22<!-- /stat -->个点、Step Plan 国内站<!-- stat:plans_step_plan -->12<!-- /stat -->个点、MiMo Token Plan <!-- stat:plans_mimo_token -->32<!-- /stat -->个点。所有采用数据都参与对应的全量输出；缺榜单分数的模型不进入该榜帕累托图，但仍保留在额度和单价数据中。
 
 美元/credits 额度与三段价换算统一按 `conventions.json` 的标准负载（缓存读取 97%、普通输入 2.5%、输出 0.5%）折算；直接给出 total tokens 的面板、日志与跑满实测不重复归一。Anthropic 档与低缓存档等其余负载口径见 [CONVENTIONS.md](../CONVENTIONS.md) 第 2 节；逐样本负载审计见 [`token-mix-audit-round2-2026-09-07.json`](research/token-mix-audit-round2-2026-09-07.json)。
 
 | Board / 榜单 | Scored rows / 有分行 | Unscored rows / 缺分行 |
 |---|---:|---:|
-| AA Intelligence | <!-- stat:scored_aa_intelligence_index -->307<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_aa_intelligence_index -->38<!-- /stat --> |
-| AA Coding Agent | <!-- stat:scored_aa_coding_agent_index -->125<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_aa_coding_agent_index -->220<!-- /stat --> |
-| Code Arena | <!-- stat:scored_arena_code -->290<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_arena_code -->55<!-- /stat --> |
-| Agent Arena | <!-- stat:scored_arena_agent_mode -->246<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_arena_agent_mode -->99<!-- /stat --> |
-| OpenDesign Arena | <!-- stat:scored_open_design_arena -->79<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_open_design_arena -->266<!-- /stat --> |
-| Terminal-Bench 4.0 | <!-- stat:scored_terminal_bench_4 -->153<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_terminal_bench_4 -->192<!-- /stat --> |
-| Terminal-Bench 4.0 (AA) | <!-- stat:scored_aa_terminal_bench_4 -->292<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_aa_terminal_bench_4 -->53<!-- /stat --> |
-| DeepSWE v1.1 | <!-- stat:scored_deepswe_1_1 -->201<!-- /stat --> / <!-- stat:points_total -->345<!-- /stat --> | <!-- stat:unscored_deepswe_1_1 -->144<!-- /stat --> |
+| AA Intelligence | <!-- stat:scored_aa_intelligence_index -->349<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_aa_intelligence_index -->55<!-- /stat --> |
+| AA Coding Agent | <!-- stat:scored_aa_coding_agent_index -->139<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_aa_coding_agent_index -->265<!-- /stat --> |
+| Code Arena | <!-- stat:scored_arena_code -->330<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_arena_code -->74<!-- /stat --> |
+| Agent Arena | <!-- stat:scored_arena_agent_mode -->284<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_arena_agent_mode -->120<!-- /stat --> |
+| OpenDesign Arena | <!-- stat:scored_open_design_arena -->93<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_open_design_arena -->311<!-- /stat --> |
+| Terminal-Bench 4.0 | <!-- stat:scored_terminal_bench_4 -->165<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_terminal_bench_4 -->239<!-- /stat --> |
+| Terminal-Bench 4.0 (AA) | <!-- stat:scored_aa_terminal_bench_4 -->334<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_aa_terminal_bench_4 -->70<!-- /stat --> |
+| DeepSWE v1.1 | <!-- stat:scored_deepswe_1_1 -->227<!-- /stat --> / <!-- stat:points_total -->404<!-- /stat --> | <!-- stat:unscored_deepswe_1_1 -->177<!-- /stat --> |
 
 具体缺分模型以 [`points.csv`](../derived/points.csv) / [`points.json`](../derived/points.json) 的空分数字段为准；不为缺失模型补造分数。
 

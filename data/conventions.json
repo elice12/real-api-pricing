@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10",
+  "updatedAt": "2026-11-14",
   "project": "真实API定价",
   "role": "定义当前采用、计算、绘图和公开发布共用的项目口径",
   "formula": "订阅价 ÷ 用户实际能用到的月 token = 真实混合单价",
@@ -16,17 +16,8 @@
     "previousRate": 7.2,
     "note": "2026-09-05为周六，采用最近交易日9月4日中间价；非银行卡实际结算价。100美元=677.87人民币。"
   },
-  "unmeteredPolicy": "订阅内明确不占额度、无并发上限的模型：真实单价记 0、显示为 ≈$0/MTok（分母无界，趋于 0 而非精确 0），X 轴以专用‘不计额度’刻度位表示、不进对数换算；参与前沿。促销口径必须标截止日并在到期后复核。",
-  "promotions": {
-    "devin_swe2": {
-      "startDate": "2026-09-10",
-      "endDate": "2026-10-31",
-      "labelZh": "SWE-2 促销：Pro/Max/Teams 不计额度",
-      "labelEn": "SWE-2 promo: unmetered on Pro/Max/Teams",
-      "endDateBasis": "2026-09-12 给定；官推仅写 for the next month",
-      "evidence": "data/research/devin-swe2-round1-2026-09-12.json"
-    }
-  },
+  "unmeteredPolicy": "明确不收取模型 Token 增量费用的订阅权益可显示为名义 ≈$0/MTok 特殊点；这不等于没有模型速率限制、并发限制或无限月吞吐。必须标注可用客户端、适用套餐及限制。仅临时促销必须标截止日并在到期后复核；永久权益需保留官方公告来源和核验日。",
+  "promotions": {},
   "monthWeeks": 4,
   "monthWeeksAlt": "30/7 只作灵敏度",
   "tokenPolicy": "所有 token 一视同仁；美元额度和三段价统一按项目标准负载折算",
@@ -60,5 +51,34 @@
     "确认；若与多个独立来源冲突，必须公开冲突并重新拍板",
     "官方美元/credits额度与三段价按项目统一标准负载换算",
     "第三方综述和跨档假设仅作低置信旁证"
-  ]
+  ],
+  "historicalPromotions": {
+    "devin_swe2_2026_09": {
+      "startDate": "2026-09-10",
+      "endDate": "2026-10-31",
+      "labelZh": "SWE-2 促销：Pro/Max/Teams 不计额度",
+      "labelEn": "SWE-2 promo: unmetered on Pro/Max/Teams",
+      "endDateBasis": "2026-09-12 给定；官推仅写 for the next month",
+      "evidence": "data/research/devin-swe2-round1-2026-09-12.json"
+    }
+  },
+  "permanentBenefits": {
+    "devin_swe2": {
+      "effectiveAnnouncementDate": "2026-11-12",
+      "scope": [
+        "Devin Desktop",
+        "Devin CLI"
+      ],
+      "plans": [
+        "Pro",
+        "Max",
+        "Teams"
+      ],
+      "labelZh": "SWE-2 在 Desktop/CLI 永久免费，不计 Token 增量费用（速率限制未测）",
+      "labelEn": "Free SWE-2 in Desktop/CLI permanently; rate limits unmeasured",
+      "source": "https://devin.ai/blog/devin-teams-plan",
+      "lastVerified": "2026-11-14",
+      "note": "Not a claim of unlimited throughput or free normal Cloud sessions."
+    }
+  }
 }
