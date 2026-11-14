@@ -66,7 +66,8 @@ jobs:
           python scripts/checks/verify_svg.py
           python scripts/checks/verify_four_boards.py > /dev/null
           python scripts/checks/verify_publication.py
-          git diff --check
+          # Generated CSV uses CRLF; git diff --check treats those line endings as trailing whitespace.
+          git diff --check -- README.md README.zh.md
       - name: Commit reproducible generated assets back to update branch
         run: |
           git config user.name 'github-actions[bot]'
