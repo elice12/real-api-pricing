@@ -3,6 +3,13 @@
 本地 `AGENTS.md`（不入库）只放 Agent 工作流程；口径与规则见 [`CONVENTIONS.md`](CONVENTIONS.md)；本文件记录每条采用值的取舍（旧值 → 新值 → 依据 → 未采来源）。
 最权威的表述仍在 `scripts/build_adopted.py` 的 `decision_note` 和 `data/research/` 证据文件里；本文件是按时间的索引摘要。改数只能改 `build_adopted.py`，改完在这里同步记一笔。
 
+## 2026-11-14 · 第二轮：GOAT 月池及三模型额度修订（采用）
+
+- **GOAT**：官方 [定价页](https://commandcode.ai/pricing)、[GOAT Plan](https://commandcode.ai/docs/plans/goat)、[Pricing Limits](https://commandcode.ai/docs/resources/pricing-limits) 均列订阅 $10/月、最高共享月池 $100、5h $20、周 $50；每模型独立 cap，不叠加。旧共享月池 $70 改为 $100；`effective=min(100, model_allowance)`，仍按标准 97% cache/2.5% input/0.5% output 负载换算。
+- **本次采用**：GOAT × DeepSeek V4.1 Flash 72.464→103.520 亿/月（官方 $100 闲时，峰时价翻倍）；GLM-5.3 0.647→2.264 亿/月（$20→$70，官方 11-13 Boost 证据及 11-14 复核）；Ling 3.1 Flash 9.972→14.245 亿/月（模型 cap $100 不再受旧全局 $70 截断）。这三行的 `data_date` 设为 2026-11-14；其他 GOAT 行不自动修改日期。
+- **明确未采用**：GLM-5.3 Flash $100 Boost 标记 `while capacity lasts` 且缺结束日期，仍用先前 $80 常态值；Cursor 新 X Subscription 是跨产品周池，Claude 新 Max/Ultra 是新套餐口径，均不能套历史旧模型实测。Claude 11-09 至 11-16 的 Fable 活动、OpenAI 2026-12 共享额度仅归档，暂不派生月 Token。
+- **证据**：`data/research/crossvendor-official-round2-2026-11-14.json`、`docs/refresh-round2-2026-11-14.md`。仅经过完整再生成与 CI 才公布新的 adopted 数据；本轮快照日期仍为 2026-11-14。
+
 ## 2026-11-14 · Devin SWE-2 永久权益及 OpenCode Go 三档官方表（采用）
 
 - **Devin Pro × SWE-2**：2026-11-12 Cognition [官方公告](https://devin.ai/blog/devin-teams-plan)宣布 SWE-2 在 Devin Desktop 与 CLI 对 Pro/Max/Teams 永久免费；[定价页](https://devin.ai/pricing) Pro $20/月。保留最低合格档 Pro 的名义 ≈$0/MTok 特殊点，清空 `promo_until`，不再采用 2026-10-31 的历史促销截止日，数据日期改为 2026-11-12。边界：仅 Desktop/CLI，独立 rate limit 未经实测，不代表无限吞吐或 Cloud 会话免费；Max/Teams 更高费用点不重复画。旧促销原始证据不覆盖，见 `official-plan-refresh-round1-2026-11-14.json`。
