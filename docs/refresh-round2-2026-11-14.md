@@ -6,15 +6,16 @@
 
 [GOAT 官方说明](https://commandcode.ai/docs/plans/goat)、[定价页](https://commandcode.ai/pricing)、[Pricing & Limits](https://commandcode.ai/docs/resources/pricing-limits) 复核一致：GOAT 订阅 **$10/月**；月度最高 **$100** 使用额度，五小时最高 **$20**，每周最高 **$50**，各模型有自己的月度上限、并共享订阅额度，不可跨模型求和。Top-up 属于另外付费。
 
-仍按统一标准负载 **缓存读取 97%、普通输入 2.5%、输出 0.5%** 折算，`effective_monthly_budget = min(100, model_allowance)`。下列三个模型本轮有采用值变化：
+仍按统一标准负载 **缓存读取 97%、普通输入 2.5%、输出 0.5%** 折算，`effective_monthly_budget = min(100, model_allowance)`。下列四个模型本轮有采用值变化：
 
 | GOAT × 模型 | 之前亿 token/月 | 新亿 token/月 | 官方本模型月额度 | 价格 (cached/input/output, $/MTok) |
 |---|---:|---:|---:|---|
 | DeepSeek V4.1 Flash | 72.464 | 103.520 | $100 | 0.003 / 0.15 / 0.60（闲时） |
 | GLM-5.3 | 0.647 | 2.264 | $70 | 0.26 / 1.40 / 4.40 |
+| GLM-5.3 Flash | 19.802 | 22.631 | $80 常态（限时 $100 未采用） | 0.03 / 0.15 / 0.50 |
 | Ling 3.1 Flash | 9.972 | 14.245 | $100 | 0.06 / 0.30 / 0.90 |
 
-DeepSeek 闲时与峰时价格不同，实际调用量会受峰时、缓存命中率、模型可用性、窗口限制影响；这些不是用户实测可用 token 数。GLM-5.3 的 $70 已在 [2026-11-13 上游研究](../data/research/goat-glm53-boost-round1-2026-11-13.json)记录，本轮才正式采用。**GLM-5.3 Flash** 官网显示 $100，但 [限额页](https://commandcode.ai/docs/resources/pricing-limits)注明 **while capacity lasts** 且无可核实截止日期，本项目遵守「限时促销无明确结束日期不纳入长期比较」规则，仍采用之前的 $80 模型月额度（约 22.631 亿/月）。
+DeepSeek 闲时与峰时价格不同，实际调用量会受峰时、缓存命中率、模型可用性、窗口限制影响；这些不是用户实测可用 token 数。GLM-5.3 的 $70 已在 [2026-11-13 上游研究](../data/research/goat-glm53-boost-round1-2026-11-13.json)记录，本轮才正式采用。**GLM-5.3 Flash** 官网显示 $100，但 [限额页](https://commandcode.ai/docs/resources/pricing-limits)注明 **while capacity lasts** 且无可核实截止日期，本项目遵守「限时促销无明确结束日期不纳入长期比较」规则，仍采用之前的 $80 模型月额度；但因为 GOAT 共享池 $70→$100，实际生效额度由 $70 升至 $80，因此本行从 **19.802→22.631 亿/月**。
 
 新上架模型的单独价格、额度和模型标识仍需进一步逐一核对，不能把 72 个模型的目录数量直接当作 72 个已完成采用点。
 
@@ -34,4 +35,4 @@ DeepSeek 闲时与峰时价格不同，实际调用量会受峰时、缓存命�
 
 ## 检查边界
 
-只改 `scripts/build_adopted.py` 中 GOAT 最高池与三条模型采用记录，以及相应 `DATA_DATES`、`DECISIONS.md`、测试和生成文件。其他所有采用行应保持原样；更新必须通过 `BUILD.md` 全链路和网站 / CLI CI，才可合并。
+只改 `scripts/build_adopted.py` 中 GOAT 最高池与四条模型采用记录，以及相应 `DATA_DATES`、`DECISIONS.md`、测试和生成文件。其他所有采用行应保持原样；更新必须通过 `BUILD.md` 全链路和网站 / CLI CI，才可合并。
