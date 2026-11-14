@@ -1,5 +1,7 @@
 # Data / 数据
 
+> **2026-11-14 更新边界 / Freshness:** 正式采用数据与生成图仍为 2026-10-16 快照；[11 月官方复核](../docs/refresh-2026-11-14.md)及[新研究证据](research/official-plan-refresh-round1-2026-11-14.json)尚未入权。Devin SWE-2 历史促销日期不能作为当前免费权益的截止日。 / New official evidence is research-only, not an adopted snapshot.
+
 Current snapshot: <!-- stat:snapshot -->2026-10-16<!-- /stat -->. The adopted dataset contains <!-- stat:points_total -->332<!-- /stat --> plan × model rows: <!-- stat:points_subscription -->311<!-- /stat --> subscription rows (<!-- stat:points_allowance -->310<!-- /stat --> with a monthly allowance plus one unmetered promotional row, Devin Pro × SWE-2 at ≈$0/MTok until 2026-10-31) and <!-- stat:points_metered -->21<!-- /stat --> metered API rows. This covers the project's adopted sample, not every plan or model on the market.
 
 These files are the public redacted edition. Original local evidence is backed up outside Git; see [PUBLICATION.md](../PUBLICATION.md). 本目录为公开脱敏版，保留数值、来源与取舍记录，原件仅存于 Git 忽略的本地备份。
