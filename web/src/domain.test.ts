@@ -249,7 +249,7 @@ test("Command Code GOAT uses the November 14 $100 cap and model-specific credits
   // min($100 plan pool, $100 model allowance) / $0.00966 per MTok.
   assert.equal(deepseek.monthly_yi, 103.52);
   assert.equal(deepseek.real_usd_per_mtok, 0.00096599691);
-  assert.equal(price(deepseek.real_usd_per_mtok), "$0.000966");
+  assert.equal(price(deepseek.real_usd_per_mtok), "$0.00097");
   assert.equal(deepseek.data_date, "2026-11-14");
 
   const glm = data.points.find((p) => p.id === "command_code_goat::glm-5.3")!;
