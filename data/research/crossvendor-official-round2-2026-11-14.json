@@ -1,0 +1,157 @@
+{
+  "collectedAt": "2026-11-14",
+  "status": "partially_adopted_official_only",
+  "methodology": "Checked public official pricing and usage documentation; no logged-in quota panel or controlled usage test. Preserve older measured rows unless a same-plan allowance is documented.",
+  "vendorRecords": [
+    {
+      "vendor": "Command Code",
+      "plan": "GOAT",
+      "officialSources": [
+        "https://commandcode.ai/pricing",
+        "https://commandcode.ai/docs/plans/goat",
+        "https://commandcode.ai/docs/resources/pricing-limits"
+      ],
+      "verifiedAt": "2026-11-14",
+      "monthlySubscriptionUsd": 10,
+      "maxMonthlyUsageUsd": 100,
+      "max5HourUsageUsd": 20,
+      "maxWeeklyUsageUsd": 50,
+      "perModelAllowanceIndependent": true,
+      "usagePoolDescription": "Model-specific monthly allowance; each model draws from the same plan pool; do not sum model limits",
+      "adopted": [
+        {
+          "model": "glm-5.3",
+          "beforeMonthlyBudgetUsd": 20,
+          "afterMonthlyBudgetUsd": 70,
+          "cachedUsdPerMTok": 0.26,
+          "inputUsdPerMTok": 1.4,
+          "outputUsdPerMTok": 4.4,
+          "promoExpiry": null,
+          "modelDataDate": "2026-11-14"
+        },
+        {
+          "model": "deepseek-v4.1-flash",
+          "beforeMonthlyBudgetUsd": 80,
+          "afterMonthlyBudgetUsd": 100,
+          "cachedUsdPerMTok": 0.003,
+          "inputUsdPerMTok": 0.15,
+          "outputUsdPerMTok": 0.6,
+          "rateTier": "offpeak",
+          "promoExpiry": null,
+          "modelDataDate": "2026-11-14"
+        },
+        {
+          "model": "ling-3.1-flash",
+          "beforeMonthlyBudgetUsd": 100,
+          "afterMonthlyBudgetUsd": 100,
+          "globalPoolCapBeforeUsd": 70,
+          "globalPoolCapAfterUsd": 100,
+          "cachedUsdPerMTok": 0.06,
+          "inputUsdPerMTok": 0.3,
+          "outputUsdPerMTok": 0.9,
+          "promoExpiry": null,
+          "modelDataDate": "2026-11-14"
+        },
+        {
+          "model": "glm-5.3-flash",
+          "beforeMonthlyBudgetUsd": 80,
+          "afterMonthlyBudgetUsd": 80,
+          "planCapBeforeUsd": 70,
+          "planCapAfterUsd": 100,
+          "previousEffectiveBudgetUsd": 70,
+          "newEffectiveBudgetUsd": 80,
+          "cachedUsdPerMTok": 0.03,
+          "inputUsdPerMTok": 0.15,
+          "outputUsdPerMTok": 0.5,
+          "modelDataDate": "2026-11-14",
+          "rationale": "Cap lift raises the standing $80 model limit's effective spend from $70 to $80; exclude the separate official $100 promotion marked while capacity lasts."
+        }
+      ],
+      "deferred": [
+        {
+          "model": "glm-5.3-flash",
+          "officialMonthlyBudgetUsd": 100,
+          "previousAdoptedMonthlyBudgetUsd": 80,
+          "reason": "The normal standing model budget is still adopted at $80; the new shared cap $100 raises effective usage from $70 to $80. The extra advertised $100 model budget is explicitly 'while capacity lasts' without a dated expiry and remains excluded."
+        },
+        {
+          "scope": "other newer GOAT models",
+          "reason": "Models not in adopted catalog require model id, durable price, allowance and unique per-model evidence verification before adding points."
+        }
+      ],
+      "caution": "$100 is max monthly benefit, not an additive cash credit across models; 5-hour and weekly caps apply to included credits and top-ups are separate."
+    },
+    {
+      "vendor": "Cursor",
+      "officialSources": [
+        "https://cursor.com/pricing",
+        "https://cursor.com/docs/models-and-pricing"
+      ],
+      "verifiedAt": "2026-11-14",
+      "newSubscription": "X Subscription / Cursor + Grok shared weekly pool",
+      "plansMonthlyUsd": {
+        "plus": 8,
+        "premium": 30,
+        "super": 100,
+        "ultra": 200
+      },
+      "relativeUsageMultiplierFromPlus": {
+        "plus": 1,
+        "premium": 4,
+        "super": 15,
+        "ultra": 50
+      },
+      "thirdPartyModels": "Not covered by included pool; Premium and above can pay API list price using prepaid credits",
+      "legacyPlans": "Old Cursor Pro, Pro+, Ultra, Start and older Teams continue with separate monthly usage pools; treat recorded quota measurements as legacy evidence, not interchangeable with new weekly shared pool",
+      "adoption": "research_only",
+      "noTokenEquivalentReason": "Official product page provides relative multipliers and weekly shared pool, not a directly comparable absolute per-model monthly token allowance; third-party usage is extra.",
+      "recommendation": "Separate plan_gen/legacy offerings before any new price or quota row is adopted."
+    },
+    {
+      "vendor": "Anthropic Claude",
+      "officialSources": [
+        "https://claude.com/pricing",
+        "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers"
+      ],
+      "verifiedAt": "2026-11-14",
+      "newPlansMonthlyUsd": {
+        "pro": 20,
+        "max": 100,
+        "ultra": 200
+      },
+      "newRelativeWeeklyUsageFromPro": {
+        "pro": 1,
+        "max": 5,
+        "ultra": 10
+      },
+      "ultraNoFiveHourLimit": "Verified Ultra accounts only",
+      "fable52LaunchPromo": {
+        "start": "2026-11-09",
+        "end": "2026-11-16T23:59:00-08:00",
+        "proAndStandardTeam": "One week of Fable access up to 50% weekly usage limit plus one reset",
+        "proResetExpires": "2026-11-16T23:59:00-08:00",
+        "maxUltraResets": "1-3 based on paid subscription tenure",
+        "maxUltraResetsExpire": "2027-03-08T23:59:00-08:00"
+      },
+      "adoption": "research_only",
+      "reason": "Existing historical Max 20x measurements cannot be re-labeled to new Ultra 10x or new Max 5x without account-specific fresh usage observations; one-off resets must not be turned into ongoing monthly token entitlements."
+    },
+    {
+      "vendor": "OpenAI",
+      "officialSources": [
+        "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits"
+      ],
+      "verifiedAt": "2026-11-14",
+      "policyEffectiveMonth": "2026-12",
+      "plansAffected": [
+        "Plus",
+        "Pro",
+        "Business"
+      ],
+      "statedPolicy": "Shared token-denominated ChatGPT and Codex allowance; Instant chat does not draw from shared allowance",
+      "adoption": "research_only",
+      "reason": "No official absolute post-transition model-specific monthly token allowance has been published; do not alter November usage measurements."
+    }
+  ],
+  "adoptedScope": "GOAT shared ceiling with four affected model rows (GLM-5.3 Flash's ordinary $80 tier becomes effective after cap lift); Cursor/Claude/OpenAI research only."
+}
