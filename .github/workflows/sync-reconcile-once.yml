@@ -50,7 +50,7 @@ jobs:
           bp=Path("scripts/build_adopted.py")
           source=bp.read_text(encoding="utf-8-sig")
           for model in ("deepseek-v4.1-flash","kimi-k3.1-pro","minimax-m3.1-flash"):
-              rx=re.compile(r'^\\s*\\("opencode_go", "'+re.escape(model)+r'"\\): \\("2026-10-30", "official"\\),\\n',re.M)
+              rx=re.compile(r'^\s*\("opencode_go", "'+re.escape(model)+r'"\): \("2026-10-30", "official"\),\n',re.M)
               source,count=rx.subn("",source)
               assert count==1, f"Expected one stale date override for {model}, got {count}"
           bp.write_text(source,encoding="utf-8")
