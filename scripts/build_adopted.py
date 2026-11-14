@@ -684,102 +684,80 @@ def claude_fable51_max_monthly_yi() -> float:
     )
 
 
-# OpenCode Go 官方给的是共享美元池、每模型月 Usage 和三段价格；按项目统一标准负载折 token。
-# 元组：(model, per-model Usage USD, cached read, input, output, 采用价档说明)
-# 证据全量快照：data/research/opencode-go-round5-2026-09-06.json（当时 28 个模型）。
-# DeepSeek 2026-09-10 增量：opencode-go-deepseek-round6-2026-09-10.json。
-# 2026-09-30 full re-verification: goat-opencode-catalogs-round3-2026-09-30.json —
-#   V4 Flash / Vision Exp back in the official catalog, re-adopted; gpt-6-luna added;
-#   glm-5.3-flash and deepseek-v4.1-flash Usage raised to $60; omen-alpha, glm-5.1,
-#   minimax-m2.5, qwen3.7-max, qwen3.6-plus delisted (absent from official tables); now 28 models.
+# OpenCode Go / Go Plus / Go Teams — 2026-11-14 official three-tier per-model table.
+# Source: https://opencode.ai/docs/console/go/ , dated research:
+# data/research/opencode-go-three-tiers-round1-2026-11-14.json
+# Each tuple: model slug, [Go, Go Plus, Go Teams] monthly USD usage,
+# cached-read USD/MTok, input USD/MTok, output USD/MTok, caveat.
+# Each model has independent 5h=20%, weekly=50%, monthly=100% windows.
+# Do NOT sum per-model allowances, do NOT apply the obsolete $60 shared cap.
+# Rows use the lower-context / off-peak tier for multi-tier models;
+# the alternate price bands remain in evidence and are not averaged.
+# Free time-limited models are excluded until a verified end date is known.
 OPENCODE_GO_MODELS = (
-    ("grok-4.6", 15, 0.5, 2.0, 6.0, "≤200K 标价；>200K 价翻倍，保留在 research variants"),
-    ("grok-4.7", 15, 0.5, 2.0, 6.0, "≤200K 标价；>200K 价翻倍，保留在 research variants；mimo-v26-grok47-catalogs-round1-2026-09-22.json"),
-    ("gpt-5.6-luna", 15, 0.02, 0.2, 1.2, "≤272K 标价；>272K 档保留在 research variants"),
-    ("gpt-6-luna", 15, 0.01, 0.1, 0.5, "new official row; <=272K list price; >272K band kept in research variants; goat-opencode-catalogs-round3-2026-09-30.json"),
-    ("glm-5.3-flash", 60, 0.03, 0.15, 0.5, "official Usage $15->$60 (reverified 2026-09-30); goat-opencode-catalogs-round3-2026-09-30.json"),
-    ("glm-5.3", 15, 0.26, 1.4, 4.4, "官网单档"),
-    ("glm-5.2", 60, 0.26, 1.4, 4.4, "官网单档"),
-    ("kimi-k3", 15, 0.3, 3.0, 15.0, "官网单档"),
-    ("kimi-k2.7-code", 60, 0.19, 0.95, 4.0, "官网单档"),
-    ("kimi-k2.6", 60, 0.16, 0.95, 4.0, "官网单档"),
-    ("longcat-2.0", 60, 0.006, 0.3, 1.2, "官网单档"),
-    ("mimo-v2.5", 60, 0.0028, 0.14, 0.28, "官网单档"),
-    ("mimo-v2.5-pro", 15, 0.003625, 0.435, 0.87, "官网单档"),
-    ("mimo-v2.6-flash", 60, 0.0028, 0.14, 0.28, "官网单档；Usage $60"),
-    ("mimo-v2.6-pro", 15, 0.003625, 0.435, 0.87, "官网单档；Usage $15；与 v2.5-pro 同 Usage 档"),
-    ("minimax-m3", 60, 0.06, 0.3, 1.2, "官网单档"),
-    ("minimax-m2.7", 60, 0.06, 0.3, 1.2, "官网单档"),
-    ("muse-spark-1.3-contributor", 60, 0.002, 0.1, 0.2, "官网单档"),
-    ("muse-spark-1.2-contributor", 60, 0.002, 0.1, 0.2, "官网单档"),
-    ("qwen3.8-max", 15, 0.25, 2.0, 6.0, "官网单档"),
-    ("qwen3.8-flash", 30, 0.016, 0.15, 0.47, "官网单档"),
-    ("qwen3.7-plus", 60, 0.04, 0.4, 1.6, "≤256K 标价；>256K 档保留在 research variants"),
-    ("deepseek-v4.1-flash", 60, 0.003, 0.15, 0.60, "官网 Monthly limit 永久 $60；Off-Peak；Peak=2×保留在 research variants"),
-    ("deepseek-v4-pro", 15, 0.022, 0.66, 1.98, "Off-Peak；Peak 额度为其一半，保留在 research variants；OpenCode 价表未改"),
-    ("deepseek-v4-flash", 30, 0.003, 0.15, 0.60, "back in official catalog, Usage $30 (restored after the 9/10 removal); Off-Peak; Peak=2x kept in research variants; goat-opencode-catalogs-round3-2026-09-30.json"),
-    ("deepseek-v4-flash-vision-exp", 15, 0.003, 0.15, 0.60, "back in official catalog, Usage $15 (restored after the 9/10 removal); Off-Peak; Peak=2x kept in research variants; goat-opencode-catalogs-round3-2026-09-30.json"),
-    ("hy4-preview", 30, 0.042, 0.834, 2.501, "官网单档"),
-    ("hy3", 60, 0.035, 0.14, 0.58, "官网单档"),
-    ("gemini-4-argon-contributor", 30, 0.20, 4.0, 20.0, "new official row; Go monthly $30; 2x limited-time $60 with no end date excluded per temp-promo policy; $4/$20/cached $0.20; Not ZDR; opencode-go-gemini4-argon-round1-2026-10-15.json"),
-    ("step-5-preview", 15, 0.10, 1.0, 2.7, "new official paid row (was Free unlimited limited-time on 2026-10-15); Go monthly $15; 4x limited-time $60 with no end date excluded per temp-promo policy; $1/$2.70/cached $0.10; opencode-go-step5-preview-round1-2026-10-16.json"),
+    ("grok-4.7", (15, 60, 20), 0.50, 2.0, 6.0, "<=200K context"),
+    ("glm-5.3-flash", (60, 180, 65), 0.03, 0.15, 0.50, "regular"),
+    ("glm-5.3", (15, 120, 20), 0.26, 1.40, 4.40, "regular"),
+    ("glm-5.2", (60, 180, 65), 0.26, 1.40, 4.40, "regular"),
+    ("gpt-6-luna", (15, 60, 20), 0.01, 0.10, 0.50, "<=272K context"),
+    ("gpt-5.6-luna", (15, 60, 20), 0.02, 0.20, 1.20, "<=272K context"),
+    ("claude-haiku-5.5", (15, 60, 20), 0.01, 0.10, 0.50, "<=100K context"),
+    ("gemini-4-argon", (30, 120, 35), 0.10, 2.0, 10.0,
+     "official 50% token-price promotion through 2026-11-30; normal cached/input/output=$0.20/$4/$20"),
+    ("kimi-k3.1-pro", (15, 60, 20), 0.20, 2.0, 10.0, "regular; cache-write omitted in standard mix"),
+    ("kimi-k3", (15, 60, 20), 0.30, 3.0, 15.0, "regular"),
+    ("kimi-k2.7-code", (60, 180, 65), 0.19, 0.95, 4.0, "regular"),
+    ("longcat-2.0", (60, 240, 65), 0.006, 0.30, 1.20, "regular"),
+    ("step-5-preview", (15, 60, 20), 0.10, 1.0, 2.70, "regular; earlier 4x promo excluded"),
+    ("mimo-v2.6-flash", (60, 120, 65), 0.0028, 0.14, 0.28, "regular"),
+    ("mimo-v2.6-pro", (15, 60, 20), 0.003625, 0.435, 0.87, "regular"),
+    ("mimo-v2.5", (60, 120, 65), 0.0028, 0.14, 0.28, "regular"),
+    ("mimo-v2.5-pro", (15, 60, 20), 0.003625, 0.435, 0.87, "regular"),
+    ("minimax-m3.1-flash", (20, 80, 25), 0.015, 0.15, 0.60, "regular"),
+    ("minimax-m3", (60, 180, 65), 0.06, 0.30, 1.20, "<=512K context"),
+    ("muse-spark-1.3-contributor", (60, 120, 65), 0.002, 0.10, 0.20,
+     "restricted to allowed regions and workspace privacy settings"),
+    ("muse-spark-1.2-contributor", (60, 120, 65), 0.002, 0.10, 0.20,
+     "restricted to allowed regions and workspace privacy settings"),
+    ("qwen3.8-max", (15, 60, 20), 0.25, 2.0, 6.0, "regular; cache-write omitted in standard mix"),
+    ("qwen3.8-flash", (30, 90, 35), 0.016, 0.15, 0.47, "regular"),
+    ("qwen3.7-plus", (60, 180, 65), 0.04, 0.40, 1.60, "<=256K context"),
+    ("deepseek-v4.1-flash", (100, 200, 105), 0.003, 0.15, 0.60,
+     "off-peak only; peak is double price; requires Global region"),
+    ("deepseek-v4-pro", (15, 60, 20), 0.022, 0.66, 1.98,
+     "off-peak only; peak is double price; requires Global region"),
+    ("hy4", (60, 240, 65), 0.042, 0.834, 2.501, "regular"),
+    ("hy4-preview", (30, 120, 35), 0.042, 0.834, 2.501, "regular"),
+    ("hy3", (60, 240, 65), 0.035, 0.14, 0.58, "regular"),
 )
-
-OPENCODE_GO_OLD_YI = {
-    "grok-4.6": 0.279, "gpt-5.6-luna": 5.25, "glm-5.3-flash": 4.44, "glm-5.3": 0.571,
-    "kimi-k3": 0.381, "kimi-k2.7-code": 3.785, "minimax-m3": 9.072, "qwen3.7-plus": 12.461,
-    "deepseek-v4-pro": 4.318, "hy4-preview": 4.917, "mimo-v2.5-pro": 14.196,
-}
-
-
-OPENCODE_GO_DEFAULT_SOURCE = (
-    "https://opencode.ai/docs/go/ official per-model Usage and three-part pricing; opencode-go-round5-2026-09-06.json; "
-    "goat-opencode-catalogs-round3-2026-09-30.json"
+assert len(OPENCODE_GO_MODELS) == 29
+OPENCODE_GO_TIERS = (
+    ("opencode_go", "OpenCode Go", 10, 0),
+    ("opencode_go_plus", "OpenCode Go Plus", 40, 1),
+    ("opencode_go_teams", "OpenCode Go Teams (per member)", 20, 2),
 )
-OPENCODE_GO_DEEPSEEK_SOURCE = (
-    "https://opencode.ai/docs/go/ 官方每模型 Usage 与三段价格；"
-    "opencode-go-deepseek-round7-2026-09-30.json"
+OPENCODE_GO_SOURCE = (
+    "https://opencode.ai/docs/console/go/ ; "
+    "data/research/opencode-go-three-tiers-round1-2026-11-14.json"
 )
-OPENCODE_GO_NOTES = {
-    "deepseek-v4.1-flash": (
-        "15.528→62.112亿：min(共享月池$60, 模型Usage $60) ÷ 统一标准负载加权价；"
-        "官网闲时 cached/input/output=$0.003/$0.15/$0.60，高峰2×。"
-        "模型月Usage由$15升为永久$60（官网曾标4x限时至9/27，9/30页面撤标按$60常态列示，确认永久；"
-        "估算请求130,000/月为旧$15档32,500的4倍，交叉一致）。官网 Model ID 现为 deepseek-v4.1-flash。"
-        "官方请求数仅作交叉检查，不再作为额度主值；同套餐各模型额度不可相加"
-    ),
-    "deepseek-v4-flash": (
-        "restored: official Usage $30 (reverified 2026-09-30; removed 09-10 as confirmed offline); "
-        "min(shared monthly pool $60, model Usage $30) / standard-workload blended price; "
-        "off-peak cached/input/output=$0.003/$0.15/$0.60, peak 2x; official estimate 65,000 requests/mo. "
-        "Per-model allowances within the plan do not add"
-    ),
-    "deepseek-v4-flash-vision-exp": (
-        "restored: official Usage $15 (reverified 2026-09-30; removed 09-10 as confirmed offline); "
-        "min(shared monthly pool $60, model Usage $15) / standard-workload blended price; "
-        "off-peak cached/input/output=$0.003/$0.15/$0.60, peak 2x; official estimate 32,500 requests/mo. "
-        "Per-model allowances within the plan do not add"
-    ),
-}
 
 
 def opencode_go_rows() -> list[tuple]:
     rows = []
-    for model, usage, cached, inp, out, variant_note in OPENCODE_GO_MODELS:
-        effective_usage = min(60, usage)
-        yi = round(effective_usage / blended(cached, inp, out) / 100, 3)
-        old = OPENCODE_GO_OLD_YI.get(model)
-        change = f"旧{old:g}亿（请求估算）→{yi:g}亿" if old is not None else f"新增{yi:g}亿"
-        source = OPENCODE_GO_DEEPSEEK_SOURCE if model.startswith("deepseek-") else OPENCODE_GO_DEFAULT_SOURCE
-        note = OPENCODE_GO_NOTES.get(
-            model,
-            f"{change}：min(共享月池$60, 模型Usage ${usage:g}) ÷ 统一标准负载加权价；{variant_note}。"
-            "官方请求数仅作交叉检查，不再作为额度主值；同套餐各模型额度不可相加",
-        )
-        rows.append((
-            "opencode_go", "OpenCode Go", 10, "USD", model, yi, "medium",
-            source, note,
-        ))
+    for model, usages, cached, inp, out, variant_note in OPENCODE_GO_MODELS:
+        mix = blended(cached, inp, out)
+        for pid, name, fee, tier in OPENCODE_GO_TIERS:
+            usage = usages[tier]
+            yi = round(usage / mix / 100, 3)
+            note = (
+                f"2026-11-14 official per-model monthly usage ${usage:g} "
+                f"at cached/input/output ${cached:g}/${inp:g}/${out:g} per MTok "
+                f"(standard mix price ${mix:.6g}/MTok; {variant_note}). "
+                "5h=20%, weekly=50%, monthly=100% of that model's allowance. "
+                "No shared-$60 cap. Other models' allowances cannot be added. "
+                "Go Teams price and allowance are per member, not per workspace."
+            )
+            rows.append((pid, name, fee, "USD", model, yi, "medium", OPENCODE_GO_SOURCE, note))
     return rows
 
 
@@ -1191,13 +1169,21 @@ SUBS = [
     *mimo_rows(),
 ]
 
-# ---- 不计额度（unmetered）订阅点：月费 ÷ 无界可用量 → $0/MTok。无 token 分母，图上用专用刻度位，不进对数换算。
-#   元组：(id, name, price, cur, model, conf, src, note)。促销口径，促销结束必须复核；见 conventions.promotions。
-SWE2_PROMO = CONVENTIONS["promotions"]["devin_swe2"]
+# ---- Zero marginal token charge (not unlimited throughput): free SWE-2 in Devin
+# Desktop/CLI on Pro/Max/Teams is permanent since the 2026-11-12 announcement.
+# Separate rate limits may apply; cloud sessions are outside this offer.
+# Preserve the model on the legacy ≈$0 chart position with explicit limitations.
+SWE2_BENEFIT = CONVENTIONS["permanentBenefits"]["devin_swe2"]
 UNMETERED = [
-    ("devin_pro", f"Devin Pro (促销至 {SWE2_PROMO['endDate'][5:].replace('-', '/')})", 20, "USD", "swe-2", "medium",
-     "官推2026-09-10：SWE-2 free for all Pro, Max & Teams subscribers for the next month；维护者面板同段swe-2 45.5M tokens不计额度；docs.devin.ai/admin/billing/usage 无并发上限；devin-swe2-round1-2026-09-12.json",
-     f"新增≈$0/MTok（记0）：SWE-2 促销期对 Pro/Max/Teams 不占额度、不计费，无并发上限→分母无界；裁定按促销价进前沿并改变前沿，截止 {SWE2_PROMO['endDate']}（裁定；官推仅写 for the next month）；取最便宜可得档 Pro $20，Max 同 Y 更贵不重复画；促销结束后必须复核计费权重，定价页永久免费口径为 SWE 1.7 不是 SWE-2"),
+    ("devin_pro", "Devin Pro (SWE-2 free in Desktop/CLI)", 20, "USD", "swe-2", "high",
+     "https://devin.ai/blog/devin-teams-plan ; https://devin.ai/pricing ; "
+     "data/research/official-plan-refresh-round1-2026-11-14.json",
+     "Cognition 2026-11-12: free SWE-2 in Devin Desktop/CLI is a permanent feature "
+     "of Pro/Max/Teams; on Pro at $20/mo it carries no incremental SWE-2 token charge. "
+     "The historical 2026-10-31 promotion end date no longer applies. "
+     "Rate limits and throughput remain unknown; zero marginal token charge is not "
+     "a promise of unrestricted volume, and Devin Cloud sessions are excluded. "
+     "Only the cheapest eligible plan Pro is plotted; Max/Teams are not added."),
 ]
 
 # ---- 同一套餐内推更多模型：(基准 plan_id, 基准模型, 新模型, token 倍率, 置信度, 依据, 是否进精选图)
@@ -1402,7 +1388,7 @@ DATA_DATES = {
     ("minimax_token_plus_global", "minimax-m3"): ("2026-06-01", "official"),
     ("minimax_token_max_global", "minimax-m3"): ("2026-06-01", "official"),
     ("minimax_token_ultra_global", "minimax-m3"): ("2026-06-01", "official"),
-    ("devin_pro", "swe-2"): ("2026-09-10", "official"),
+    ("devin_pro", "swe-2"): ("2026-11-12", "official"),
     # 按量 API 标价
     ("deepseek_v41_flash_offpeak", "deepseek-v4.1-flash"): ("2026-09-10", "official"),
     ("deepseek_v41_flash_peak", "deepseek-v4.1-flash"): ("2026-09-10", "official"),
@@ -1468,8 +1454,8 @@ def family_data_date(pid: str, model: str) -> str | None:
         return "2026-09-21" if model == "step-5-preview" else "2026-09-10"
     if pid in ("ollama_pro", "ollama_max"):
         return "2026-09-11" if model == "deepseek-v4.1-flash" else "2026-09-06"
-    if pid == "opencode_go":
-        return "2026-09-30"
+    if pid.startswith("opencode_go"):
+        return "2026-11-14"
     if pid == "command_code_goat":
         return "2026-09-30"
     return None
@@ -1550,7 +1536,7 @@ def sig(value: float, digits: int = 8) -> float:
 def unmetered_row(pid, name, price, cur, model, conf, src, note) -> dict:
     return dict(plan_id=pid, plan_name=name, plan_name_en="", billing="subscription", price=price, currency=cur,
                 price_usd=round(price / USD_PER_CNY if cur == "CNY" else price, 2), served_model=model,
-                monthly_tokens="", monthly_yi="", real_usd_per_mtok=0, unmetered="true", promo_until=SWE2_PROMO["endDate"],
+                monthly_tokens="", monthly_yi="", real_usd_per_mtok=0, unmetered="true", promo_until="",
                 confidence=conf, chart_tier="main" if is_main(pid, model) else "full", source=src, decision_note=note)
 
 

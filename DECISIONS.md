@@ -3,6 +3,13 @@
 本地 `AGENTS.md`（不入库）只放 Agent 工作流程；口径与规则见 [`CONVENTIONS.md`](CONVENTIONS.md)；本文件记录每条采用值的取舍（旧值 → 新值 → 依据 → 未采来源）。
 最权威的表述仍在 `scripts/build_adopted.py` 的 `decision_note` 和 `data/research/` 证据文件里；本文件是按时间的索引摘要。改数只能改 `build_adopted.py`，改完在这里同步记一笔。
 
+## 2026-11-14 · Devin SWE-2 永久权益及 OpenCode Go 三档官方表（采用）
+
+- **Devin Pro × SWE-2**：2026-11-12 Cognition [官方公告](https://devin.ai/blog/devin-teams-plan)宣布 SWE-2 在 Devin Desktop 与 CLI 对 Pro/Max/Teams 永久免费；[定价页](https://devin.ai/pricing) Pro $20/月。保留最低合格档 Pro 的名义 ≈$0/MTok 特殊点，清空 `promo_until`，不再采用 2026-10-31 的历史促销截止日，数据日期改为 2026-11-12。边界：仅 Desktop/CLI，独立 rate limit 未经实测，不代表无限吞吐或 Cloud 会话免费；Max/Teams 更高费用点不重复画。旧促销原始证据不覆盖，见 `official-plan-refresh-round1-2026-11-14.json`。
+- **OpenCode Go/Go Plus/Go Teams**：按 [官方模型月 Usage 表](https://opencode.ai/docs/console/go/)独立核对 29 个付费模型 × 三档 = 87 个套餐×模型点。月费分别 $10/$40/$20（Teams 为每人），5h/周/月额度是各模型月 Usage 的20%/50%/100%；删除旧 Go 全局共享 $60 封顶假设。公式为月 Usage USD ÷ 统一混合价格，原始价格表及模型的高上下文、闲忙时变体保留为研究说明；多模型额度不可相加。排除无已核实结束日期的限时免费型号，保留 Gemini 4 Argon 的 50% 折扣价（至 2026-11-30，之后复核）。移除已不在当前 Go 列表的旧条目，新增 Kimi K3.1 Pro、Claude Haiku 5.5、MiniMax M3.1 Flash、Hy4，Gemini slug 由 Contributor 改为 Argon。见 `opencode-go-three-tiers-round1-2026-11-14.json`。
+- **OpenAI**：2026-12 起 ChatGPT 与 Codex 额度共享为官方前瞻公告，不修改 2026-11 实测值，不猜测绝对月 Token。
+- **发布时间与范围**：`conventions.updatedAt` 推进至 2026-11-14，但仅 Devin 与 OpenCode 分模型表刷新；其他厂商行仍保留自己的 `data_date`。按 `BUILD.md` 全链路生成后才作为一致的公开数据发布。
+
 ## 2026-10-16 · OpenCode Go × Step 5 Preview 首个采用点
 
 - **采用**：新增 `opencode_go × step-5-preview` = **1.107 亿/月 medium**（官方表）。2026-10-15 该模型为 Free 不限量限时条目（无金额额度，不收录）；2026-10-16 改为付费行，月度 Usage $15，三段价 cached/input/output = $0.10/$1.00/$2.70，标准档混合价 $0.1355/MTok；$15 ÷ $0.1355 = 1.107 亿。页面「4x · Limited time」$60 无截止日期，按临时促销规则不采（采用则约 4.428 亿）。官方请求估算 $15 档 430 / 1,070 / 2,130 次（5h / 周 / 月）；按官方单请求负载（1,000 输入 + 55,000 缓存 + 200 输出）复算 2,130 次 × $0.00704 = $15.0，与 Usage 一致。
