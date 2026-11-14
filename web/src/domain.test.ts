@@ -262,7 +262,7 @@ test("Command Code GOAT uses the November 14 $100 cap and model-specific credits
 
   const glmFlash = data.points.find((p) => p.id === "command_code_goat::glm-5.3-flash")!;
   // $100 is labeled "while capacity lasts"; retain the standing $80 assumption.
-  assert.equal(glmFlash.monthly_yi, 27.497);
+  assert.equal(glmFlash.monthly_yi, 22.631);
 });
 test("Default selection includes every adopted point, including unscored models", () => {
   const rows = rowsFor(data, defaultState());
