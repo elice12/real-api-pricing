@@ -230,12 +230,26 @@ test("DeepSWE keeps effort levels and vendor provenance through the adapter", ()
   assert.equal(deepseek.mapping?.score_is_self_reported, true);
   assert.equal(deepseek.mapping?.agent_harness, "mini-SWE");
 });
-test("Command Code GOAT DeepSeek V4.1 Flash uses $60 monthly credits", () => {
+test("OpenCode Go DeepSeek V4.1 Flash uses the $100 per-model limit", () => {
+  const p = data.points.find((p) => p.id === "opencode_go::deepseek-v4.1-flash")!;
+  // $100 / ($0.003*0.97 + $0.15*0.025 + $0.60*0.005) = 10,351.97M tokens.
+  assert.equal(p.monthly_yi, 103.52);
+  assert.equal(p.real_usd_per_mtok, 0.00096599691);
+});
+test("OpenCode Go includes paid Kimi and MiniMax models at standard workload", () => {
+  const kimi = data.points.find((p) => p.id === "opencode_go::kimi-k3.1-pro")!;
+  const minimax = data.points.find((p) => p.id === "opencode_go::minimax-m3.1-flash")!;
+  assert.equal(kimi.monthly_yi, 0.51);
+  assert.equal(minimax.monthly_yi, 9.39);
+  assert.equal(kimi.real_usd_per_mtok, 0.19607843);
+  assert.equal(minimax.real_usd_per_mtok, 0.010649627);
+});
+test("Command Code GOAT DeepSeek V4.1 Flash uses $80 credits capped by the $70 shared pool", () => {
   const p = data.points.find((p) => p.id === "command_code_goat::deepseek-v4.1-flash")!;
-  // $60 allowance ÷ off-peak (97/2.5/0.5 × $0.003/$0.15/$0.60 = $0.00966/MTok).
-  assert.equal(p.monthly_yi, 62.112);
-  assert.equal(p.real_usd_per_mtok, 0.0016099948);
-  assert.equal(price(p.real_usd_per_mtok), "$0.00161");
+  // min($70 pool, $80 allowance) ÷ off-peak (97/2.5/0.5 × $0.003/$0.15/$0.60 = $0.00966/MTok).
+  assert.equal(p.monthly_yi, 72.464);
+  assert.equal(p.real_usd_per_mtok, 0.0013799956);
+  assert.equal(price(p.real_usd_per_mtok), "$0.00138");
 });
 test("Default selection includes every adopted point, including unscored models", () => {
   const rows = rowsFor(data, defaultState());
@@ -664,7 +678,12 @@ test("Chart search AND-matches plan, channel and model fields and dedupes points
   const backward = searchMatches(gs, "199 kimi", "en");
   assert.deepEqual(
     forward.map((r) => r.point.id).sort(),
-    ["kimi_allegretto_cn::kimi-k2.7-code", "kimi_allegretto_cn::kimi-k3"],
+    [
+      "kimi_allegretto_cn::kimi-k2.7-code",
+      "kimi_allegretto_cn::kimi-k3",
+      "kimi_pro_cn::kimi-k2.7-code",
+      "kimi_pro_cn::kimi-k3",
+    ],
   );
   assert.deepEqual(
     backward.map((r) => r.point.id).sort(),
@@ -1029,10 +1048,12 @@ test("Real prices keep full precision for ordering; summaries stay short, detail
   const s = { ...defaultState(), view: "price" as const, sort: "price", direction: "asc" as const };
   const ordered = tableRows(rowsFor(data, s), s).map((r) => r.point.real_usd_per_mtok);
   ordered.forEach((v, i) => i && assert.ok(v >= ordered[i - 1], "ascending by exact price"));
-  const plus = data.points.find((p) => p.id === "chatgpt_plus::gpt-5.6-luna")!;
-  const pro5 = data.points.find((p) => p.id === "chatgpt_pro_5x::gpt-5.6-luna")!;
-  assert.equal(price(plus.real_usd_per_mtok), price(pro5.real_usd_per_mtok));
-  assert.notEqual(plus.real_usd_per_mtok, pro5.real_usd_per_mtok);
+  // Since the $100 Pro tier moved to 10x Plus (2026-10-30), its per-token price
+  // matches the 20x tier's ($0.0014/MTok) instead of Plus's ($0.0028/MTok).
+  const pro10 = data.points.find((p) => p.id === "chatgpt_pro_10x::gpt-5.6-luna")!;
+  const pro20 = data.points.find((p) => p.id === "chatgpt_pro_20x::gpt-5.6-luna")!;
+  assert.equal(price(pro10.real_usd_per_mtok), price(pro20.real_usd_per_mtok));
+  assert.notEqual(pro10.real_usd_per_mtok, pro20.real_usd_per_mtok);
 });
 test("Ranking bars sit on a fixed decade-aligned log axis, independent of filters", () => {
   for (const view of ["allowance", "price"] as const) {

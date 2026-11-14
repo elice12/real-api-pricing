@@ -44,6 +44,14 @@ SCORE_FILES = (
     "scores-code-arena-round2-2026-10-01.json",
     "scores-agent-arena-round2-2026-10-01.json",
     "scores-open-design-round2-2026-10-01.json",
+    "scores-aa-round6-supplement-2026-10-20.json",
+    "scores-terminal-bench4-round4-2026-10-20.json",
+    "scores-terminal-bench4-selfreport-carry-2026-10-20.json",
+    "scores-code-arena-round3-2026-10-20.json",
+    "scores-agent-arena-round3-2026-10-20.json",
+    "scores-deepswe-selfreport-1017-2026-10-20.json",
+    "scores-deepswe-1.1-2026-10-13.json",
+    "scores-deepswe-selfreport-carry-2026-10-30.json",
 )
 LIST_PRICE_FILES = (
     "list-prices-2026-09.json",
@@ -61,9 +69,9 @@ def score_archives():
             for name in SCORE_FILES if (RESEARCH / name).exists()]
 
 DISPLAY = {
-    "minimax-m3.1-flash-preview": "MiniMax M3.1 Flash Preview",
+    "minimax-m3.1-flash-preview": "MiniMax M3.1 Flash Preview", "minimax-m3.1-flash": "MiniMax M3.1 Flash", "kimi-k3.1-pro": "Kimi K3.1 Pro",
     "gpt-5.6-sol": "GPT 5.6 Sol", "gpt-5.6-terra": "GPT 5.6 Terra", "gpt-5.6-luna": "GPT 5.6 Luna", "gpt-5.5": "GPT 5.5", "gpt-6-astra": "GPT-6 Astra", "gpt-6-sol": "GPT-6 Sol", "gpt-6-luna": "GPT-6 Luna", "gpt-6.1-sol": "GPT-6.1 Sol",
-    "claude-opus-5": "Claude Opus 5", "claude-opus-5.5": "Claude Opus 5.5", "claude-fable-5": "Claude Fable 5", "claude-fable-5.1": "Claude Fable 5.1", "claude-sonnet-5": "Claude Sonnet 5", "claude-opus-4.8": "Claude Opus 4.8", "claude-sonnet-5.5": "Claude Sonnet 5.5", "claude-haiku-5.5": "Claude Haiku 5.5",
+    "claude-opus-5": "Claude Opus 5", "claude-opus-5.5": "Claude Opus 5.5", "claude-fable-5": "Claude Fable 5", "claude-fable-5.1": "Claude Fable 5.1", "claude-fable-5.2": "Claude Fable 5.2", "claude-sonnet-5": "Claude Sonnet 5", "claude-opus-4.8": "Claude Opus 4.8", "claude-sonnet-5.5": "Claude Sonnet 5.5", "claude-haiku-5.5": "Claude Haiku 5.5",
     "grok-4.6": "Grok 4.6", "grok-4.7": "Grok 4.7", "grok-4.5": "Grok 4.5", "kimi-k3": "Kimi K3", "kimi-k2.7-code": "Kimi K2.7 Code", "kimi-k2.6": "Kimi K2.6", "kimi-k2.5": "Kimi K2.5",
     "glm-5.3": "GLM 5.3", "glm-5.3-flash": "GLM 5.3 Flash", "glm-5.3-flashx": "GLM 5.3 FlashX", "glm-5.2": "GLM 5.2", "glm-5.1": "GLM 5.1", "glm-5": "GLM 5",
     "minimax-m3": "MiniMax M3", "minimax-m2.7": "MiniMax M2.7", "minimax-m2.5": "MiniMax M2.5",
@@ -77,6 +85,7 @@ DISPLAY = {
     "mimo-v2.6-pro-ultraspeed": "MiMo V2.6 Pro UltraSpeed", "longcat-2.0": "LongCat 2.0",
     "muse-spark-1.3": "Muse Spark 1.3", "muse-spark-1.3-contributor": "Muse Spark 1.3 Contributor",
     "muse-spark-1.2": "Muse Spark 1.2", "muse-spark-1.2-contributor": "Muse Spark 1.2 Contributor",
+    "muse-wonder": "Muse Wonder",
     "glm-5.2-fast": "GLM 5.2 Fast", "inkling": "Inkling", "inkling-small": "Inkling Small", "mistral-medium-3.5": "Mistral Medium 3.5",
     "kimi-k2.7-code-highspeed": "Kimi K2.7 Code HighSpeed", "nemotron-3-ultra": "Nemotron 3 Ultra",
     "qwen3.8-27b": "Qwen3.8 27B", "qwen3.8-max-0902": "Qwen3.8 Max 0902",
